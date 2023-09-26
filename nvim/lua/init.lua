@@ -1,0 +1,7 @@
+require('plugins/index')
+require('functions')
+require('commands')
+require('settings')
+require('keymaps')
+require('themes')
+require('macros')

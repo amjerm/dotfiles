@@ -1,0 +1,72 @@
+local wezterm = require 'wezterm';
+
+local use_color = 'def'
+local default_color_scheme = 'nord'
+local color_scheme
+
+if use_color == 'random' or use_color == 'rand' then
+  color_scheme = require('functions/random_color_scheme').generate()
+elseif use_color == 'default' or use_color == 'def' then
+  color_scheme = default_color_scheme
+else
+  color_scheme = use_color
+end
+
+wezterm.on("window-config-reloaded", function(window)
+  window:set_right_status(wezterm.format({
+    { Attribute = { Intensity = "Half" } },
+    { Text = color_scheme .. "     " },
+  }));
+end);
+
+local keys = {
+  {
+    key = '|',
+    mods = 'LEADER|SHIFT',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = '-',
+    mods = 'LEADER',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'x',
+    mods = 'LEADER',
+    action = wezterm.action.CloseCurrentPane { confirm = true },
+  },
+  -- launch tmux session switching popup with cmd+j
+  {
+    key = 'j',
+    mods = 'CMD',
+    action = wezterm.action.Multiple {
+      wezterm.action.SendKey { key = ' ', mods = 'CTRL' },
+      wezterm.action.SendKey { key = 't', mods = 'SHIFT' },
+    },
+  }
+}
+
+local config = {
+  term = "wezterm",
+  leader = { key = 'w', mods = 'CTRL', timeout_milliseconds = 1000 },
+  color_scheme = color_scheme,
+  font = wezterm.font_with_fallback({
+    "Iosevka Term",
+    "Iosevka",
+    "MonoLisa Custom",
+    "Iosevka Extended",
+    "JetBrains Mono",
+  }),
+  keys = keys,
+  initial_rows = 40,
+  initial_cols = 105,
+  window_padding = {
+    left = 5,
+    right = 5,
+    top = 0,
+    bottom = 0,
+  },
+  font_size = 24
+}
+
+return config
