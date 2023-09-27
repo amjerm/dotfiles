@@ -20,14 +20,15 @@ bindkey -s '^o' 'lfcd\n'
 ############
 
 # CONFIG FILES
-DOTFILE_DIR="$HOME/code/amjerm/dotfiles"
+export DOTFILE_DIR="$HOME/code/amjerm/dotfiles"
 TMUX_CONFIG="$HOME/.tmux.conf"
 export NVIM_CONFIG="$XDG_CONFIG_HOME/nvim"
-export WEZTERM_CONFIG_DIR="$$DOTFILE_DIR/wezterm"
+export WEZTERM_CONFIG_DIR="$DOTFILE_DIR/wezterm"
 export WEZTERM_CONFIG_FILE="$WEZTERM_CONFIG_DIR/wezterm.lua"
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH_CONFIG="$HOME/.zshrc"
 export ZSH_PLUGINS_CONFIG="$HOME/.zsh_plugins.txt"
+export STARSHIP_CONFIG="$DOTFILE_DIR/starship/starship.toml"
 
 # SETTINGS
 export EDITOR='nvim'
