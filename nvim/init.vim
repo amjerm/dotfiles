@@ -8,3 +8,4 @@ lua require('init')
 syntax on
 filetype plugin on
 set hidden
+hi Normal guibg=NONE ctermbg=NONE

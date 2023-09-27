@@ -7,11 +7,11 @@ function set_wezterm_font() {
   else
     SIZE="$1"
   fi
-  sed -i '' -E "s/font_size.*$/font_size = $SIZE/" $WEZTERM_CONFIG
+  sed -i '' -E "s/font_size.*$/font_size = $SIZE/" $WEZTERM_CONFIG_FILE
 }
 
 function wezterm_set_color() {
-  sed -i '' -E "s/local use_color = .*$/local use_color = '$1'/" $WEZTERM_CONFIG
+  sed -i '' -E "s/local use_color = .*$/local use_color = '$1'/" $WEZTERM_CONFIG_FILE
 }
 
 # get list of feature flags in a given staging environment

@@ -19,7 +19,7 @@ format = '[$time](dimmed blue)'
 style = 'bold blue'
 
 [directory]
-style = 'bold blue'
+style = 'bold bright green'
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)](bold white) '

@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm';
 
-local use_color = 'def'
+local use_color = 'Gotham (terminal.sexy)'
 local default_color_scheme = 'nord'
 local color_scheme
 
@@ -66,6 +66,7 @@ local config = {
     top = 0,
     bottom = 0,
   },
+  window_background_opacity = 0.9,
   font_size = 24
 }
 
