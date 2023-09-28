@@ -67,7 +67,7 @@ local config = {
     bottom = 0,
   },
   window_background_opacity = 0.9,
-  font_size = 24
+  font_size = 20
 }
 
 return config

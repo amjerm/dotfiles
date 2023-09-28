@@ -20,16 +20,19 @@ bindkey -s '^o' 'lfcd\n'
 ############
 
 # CONFIG FILES
-export DOTFILE_DIR="$HOME/code/amjerm/dotfiles"
-TMUX_CONFIG="$HOME/.tmux.conf"
-export NVIM_CONFIG="$XDG_CONFIG_HOME/nvim"
-export WEZTERM_CONFIG_DIR="$DOTFILE_DIR/wezterm"
-export WEZTERM_CONFIG_FILE="$WEZTERM_CONFIG_DIR/wezterm.lua"
+
 export XDG_CONFIG_HOME="$HOME/.config"
-export ZSH_CONFIG="$HOME/.zshrc"
-export ZSH_PLUGINS_CONFIG="$HOME/.zsh_plugins.txt"
-export STARSHIP_CONFIG="$DOTFILE_DIR/starship/starship.toml"
+DOTFILE_DIR="$HOME/code/amjerm/dotfiles"
+
 ENV_CONFIG="$XDG_CONFIG_HOME/.env"
+HAMMERSPOON_CONFIG="$DOTFILE_DIR/hammerspoon/init.lua"
+NVIM_CONFIG="$XDG_CONFIG_HOME/nvim"
+TMUX_CONFIG="$DOTFILE_DIR/tmux/.tmux.conf"
+WEZTERM_CONFIG_DIR="$DOTFILE_DIR/wezterm"
+ZSH_CONFIG="$DOTFILE_DIR/zsh/.zshrc"
+ZSH_PLUGINS_CONFIG="$DOTFILE_DIR/zsh/.zsh_plugins.txt"
+export STARSHIP_CONFIG="$DOTFILE_DIR/starship/starship.toml"
+export WEZTERM_CONFIG_FILE="$DOTFILE_DIR/wezterm/wezterm.lua"
 
 # SETTINGS
 export EDITOR='nvim'
@@ -70,6 +73,7 @@ alias da="dex laravel $TSI_ARTISAN_PATH"
 alias daa="da migrate --seed  && da queue:restart"
 alias edit="$EDITOR"
 alias ee="edit $ENV_CONFIG"
+alias eh="edit $HAMMERSPOON_CONFIG"
 alias email="$EMAIL"
 alias en="edit $NVIM_CONFIG"
 alias et="edit $TMUX_CONFIG"

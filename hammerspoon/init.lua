@@ -3,12 +3,12 @@ hs.hotkey.bind({ 'cmd', 'alt', 'ctrl' }, 'W', function()
 end)
 
 local appBindings = {
-        { 'B', 'firefox developer edition' },
-        { 'C', 'fantastical' },
-        { 'N', 'obsidian' },
-        { 'P', 'firefox' },
-        { 'S', 'slack' },
-        { 'T', 'wezterm' },
+        { 'B', 'firefox developer edition' }, -- browser
+        { 'C', 'fantastical' },               -- calendar
+        { 'D', 'datagrip' },                  -- database
+        { 'M', 'slack' },                     -- messaging
+        { 'N', 'obsidian' },                  -- notes
+        { 'T', 'wezterm' },                   -- terminal
 }
 
 for _, v in pairs(appBindings) do
