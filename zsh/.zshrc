@@ -29,6 +29,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH_CONFIG="$HOME/.zshrc"
 export ZSH_PLUGINS_CONFIG="$HOME/.zsh_plugins.txt"
 export STARSHIP_CONFIG="$DOTFILE_DIR/starship/starship.toml"
+ENV_CONFIG="$XDG_CONFIG_HOME/.env"
 
 # SETTINGS
 export EDITOR='nvim'
@@ -38,7 +39,7 @@ export BAT_PAGER=less
 export TIME_STYLE='long-iso'
 
 # SECRETS / DYNAMIC
-$(cat $HOME/.config/.env)
+$(cat $ENV_CONFIG)
 export CTS_LOCAL_TOKEN="$(cat $XDG_CONFIG_HOME/tokens/.contacts_service_localhost_token)"
 export JIRA_API_TOKEN="$(cat $XDG_CONFIG_HOME/tokens/.jira_api_token)"
 export LARAVEL_LOCAL_TOKEN="$(cat $XDG_CONFIG_HOME/tokens/.laravel_localhost_token)"
@@ -68,6 +69,7 @@ TSI_DB_LOCAL_WP="-h localhost -P 3308 -u root"
 alias da="dex laravel $TSI_ARTISAN_PATH"
 alias daa="da migrate --seed  && da queue:restart"
 alias edit="$EDITOR"
+alias ee="edit $ENV_CONFIG"
 alias email="$EMAIL"
 alias en="edit $NVIM_CONFIG"
 alias et="edit $TMUX_CONFIG"
