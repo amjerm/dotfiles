@@ -131,6 +131,14 @@ eval "$(starship init zsh)"
 alias cat="bat"
 alias ls="eza --icons --group-directories-first -s name -alhb"
 
+############
+# COLORS   #
+############
+
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]="fg=cyan,bold"
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]="fg=cyan,bold"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+
 #######################
 # APP SCRIPT RESULTS  #
 #######################

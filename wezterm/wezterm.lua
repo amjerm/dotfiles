@@ -46,10 +46,22 @@ local keys = {
   }
 }
 
+-- color modifications
+local modified_color_schemes = wezterm.color.get_builtin_schemes()
+
+if color_scheme == 'Gotham (terminal.sexy)' then
+  local modified_gotham = modified_color_schemes['Gotham (terminal.sexy)'];
+  modified_gotham.brights[3] = '#26a183'
+  -- modified_gotham.brights[1] = '#18545f'
+  modified_gotham.brights[1] = 'white'
+  modified_color_schemes['Gotham (terminal.sexy)'] = modified_gotham
+end
+
 local config = {
   term = "wezterm",
   leader = { key = 'w', mods = 'CTRL', timeout_milliseconds = 1000 },
   color_scheme = color_scheme,
+  color_schemes = modified_color_schemes,
   font = wezterm.font_with_fallback({
     "Iosevka Term",
     "Iosevka",

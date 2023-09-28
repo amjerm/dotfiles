@@ -35,6 +35,12 @@ local plugins = {
         --treesitter
         { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
+        --diagnostics
+        {
+                "folke/trouble.nvim",
+                dependencies = { "kyazdani42/nvim-web-devicons" },
+        },
+
         --autocomplete
         'hrsh7th/nvim-cmp',
         'hrsh7th/cmp-nvim-lsp',
