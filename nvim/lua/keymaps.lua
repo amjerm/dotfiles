@@ -31,11 +31,12 @@ vim.keymap.set('n', '<Leader>cf', function() vim.lsp.buf.format { async = true }
 vim.keymap.set('n', '<Leader>cr', vim.lsp.buf.rename, defaultOpts)
 
 -- diagnostics - LEADER d
+vim.keymap.set('n', '<Leader>df', telescopeBuiltin.diagnostics, defaultOpts)
 vim.keymap.set('n', '<Leader>dk', vim.diagnostic.open_float, defaultOpts)
-vim.keymap.set('n', '<Leader>dq', vim.diagnostic.setqflist, defaultOpts)
 vim.keymap.set('n', '<Leader>dn', vim.diagnostic.goto_next, defaultOpts)
 vim.keymap.set('n', '<Leader>dp', vim.diagnostic.goto_prev, defaultOpts)
-vim.keymap.set('n', '<Leader>df', telescopeBuiltin.diagnostics, defaultOpts)
+vim.keymap.set('n', '<Leader>dq', vim.diagnostic.setqflist, defaultOpts)
+vim.keymap.set('n', '<Leader>dt', ':TroubleToggle<CR>', defaultOpts)
 
 -- find - LEADER f
 vim.keymap.set('n', '<Leader>fa', telescopeBuiltin.resume, defaultOpts)

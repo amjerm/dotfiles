@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm';
 
-local use_color = 'Gotham (terminal.sexy)'
+local use_color = 'Gotham (custom)'
 local default_color_scheme = 'nord'
 local color_scheme
 
@@ -12,10 +12,10 @@ else
   color_scheme = use_color
 end
 
-wezterm.on("window-config-reloaded", function(window)
+wezterm.on('window-config-reloaded', function(window)
   window:set_right_status(wezterm.format({
-    { Attribute = { Intensity = "Half" } },
-    { Text = color_scheme .. "     " },
+    { Attribute = { Intensity = 'Half' } },
+    { Text = color_scheme .. '     ' },
   }));
 end);
 
@@ -49,32 +49,31 @@ local keys = {
 -- color modifications
 local modified_color_schemes = wezterm.color.get_builtin_schemes()
 
-if color_scheme == 'Gotham (terminal.sexy)' then
+if color_scheme == 'Gotham (custom)' then
   local modified_gotham = modified_color_schemes['Gotham (terminal.sexy)'];
   modified_gotham.brights[3] = '#26a183'
-  -- modified_gotham.brights[1] = '#18545f'
-  modified_gotham.brights[1] = 'white'
-  modified_color_schemes['Gotham (terminal.sexy)'] = modified_gotham
+  modified_gotham.brights[1] = "#195465"
+  modified_color_schemes['Gotham (custom)'] = modified_gotham
 end
 
 local config = {
-  term = "wezterm",
+  term = 'wezterm',
   leader = { key = 'w', mods = 'CTRL', timeout_milliseconds = 1000 },
   color_scheme = color_scheme,
   color_schemes = modified_color_schemes,
   font = wezterm.font_with_fallback({
-    "Iosevka Term",
-    "Iosevka",
-    "MonoLisa Custom",
-    "Iosevka Extended",
-    "JetBrains Mono",
+    'Iosevka Term',
+    'Iosevka',
+    'MonoLisa Custom',
+    'Iosevka Extended',
+    'JetBrains Mono',
   }),
   keys = keys,
   initial_rows = 40,
   initial_cols = 105,
   window_padding = {
-    left = 5,
-    right = 5,
+    left = '1cell',
+    right = '1cell',
     top = 0,
     bottom = 0,
   },
