@@ -74,7 +74,10 @@ vim.keymap.set('n', '<Leader>qn', ':cn<CR>', defaultOpts)
 vim.keymap.set('n', '<Leader>qp', ':cp<CR>', defaultOpts)
 
 -- symbols - LEADER s
-vim.keymap.set('n', '<Leader>s', ':AerialToggle<CR>', defaultOpts)
+vim.keymap.set('n', '<Leader>sj', ':AerialNext<CR>', defaultOpts)
+vim.keymap.set('n', '<Leader>sk', ':AerialPrev<CR>', defaultOpts)
+vim.keymap.set('n', '<Leader>sn', ':AerialNavToggle<CR>', defaultOpts)
+vim.keymap.set('n', '<Leader>ss', ':AerialToggle<CR>', defaultOpts)
 
 -- unit tests - LEADER u
 vim.keymap.set('n', '<Leader>un', ":lua require('neotest').run.run()<CR>", defaultOpts)

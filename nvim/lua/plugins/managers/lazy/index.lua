@@ -31,9 +31,14 @@ local plugins = {
                 dependencies = { 'nvim-lua/plenary.nvim' },
         },
         'b0o/schemastore.nvim',
+        {
+                'Wansmer/symbol-usage.nvim',
+                event = 'BufReadPre', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+        },
 
         --treesitter
         { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+        'nvim-treesitter/nvim-treesitter-textobjects',
 
         --diagnostics
         {
@@ -145,10 +150,6 @@ local plugins = {
                 dependencies = { { 'nvim-lua/plenary.nvim' } }
         },
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-
-        --motions
-        -- 'folke/flash.nvim',
-        -- 'm4xshen/hardtime.nvim',
 
         --repeat plugin commands with '.' in addition to native ones
         'tpope/vim-repeat',

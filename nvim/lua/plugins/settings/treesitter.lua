@@ -1,6 +1,6 @@
-require 'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
         matchup = {
-                enable = true, -- mandatory, false will disable the whole extension
+                enable = true, -- mandatory
         },
         highlight = {
                 enable = true,
@@ -8,4 +8,16 @@ require 'nvim-treesitter.configs'.setup {
         indent = {
                 enable = true,
         },
-}
+        textobjects = {
+                select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                                ["af"] = { query = "@function.outer", desc = "Select around function" },
+                                ["if"] = { query = "@function.inner", desc = "Select inside function" },
+                                ["ac"] = { query = "@class.outer", desc = "Select around class" },
+                                ["ic"] = { query = "@class.inner", desc = "Select inside class" },
+                        }
+                },
+        }
+})
