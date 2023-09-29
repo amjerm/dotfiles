@@ -1,13 +1,15 @@
 --manager
 require 'plugins/managers/index'
 
+--lsp
+require 'plugins/settings/lsp/index'
+
 --in use
 require 'plugins/settings/dadbod'
 require 'plugins/settings/dap'
 require 'plugins/settings/dashboard'
 require 'plugins/settings/fzf'
 require 'plugins/settings/indentline'
-require 'plugins/settings/lsp/index'
 require 'plugins/settings/lualine'
 require 'plugins/settings/neotest'
 require 'plugins/settings/oil'
@@ -21,5 +23,4 @@ require 'plugins/settings/vim-gitgutter'
 -- no additional settings
 require('aerial').setup()
 require('nvim-web-devicons').setup()
-require('symbol-usage').setup()
 require('trouble').setup()

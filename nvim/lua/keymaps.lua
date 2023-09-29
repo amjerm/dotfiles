@@ -10,6 +10,8 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references, defaultOpts)
 vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, defaultOpts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, defaultOpts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, defaultOpts)
+vim.keymap.set('n', ']z', 'zR', defaultOpts)
+vim.keymap.set('n', '[z', 'zM', defaultOpts)
 vim.keymap.set('n', '-', ":lua require('oil').open()<CR>", defaultOpts)
 
 -- ctrl
@@ -20,6 +22,7 @@ vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', defaultOpts) -- window nav
 
 -- other
 vim.keymap.set('n', '<Esc>', ':noh<CR>', defaultOpts) -- find file
+vim.keymap.set('n', '<Space>', 'za', defaultOpts)     -- toggle fold
 
 -- buffers - LEADER b
 vim.keymap.set('n', '<Leader>bl', ':redir! @a | silent ls | redir END | new | put! a<CR>', defaultOpts) -- ls in buffer

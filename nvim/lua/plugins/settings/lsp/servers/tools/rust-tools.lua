@@ -4,11 +4,11 @@ local setup = function(default_plus)
                         settings = {
                                 ['rust-analyzer'] = {
                                         check = {
-                                                command = 'clippy'
+                                                command = 'clippy',
                                         }
                                 }
                         },
-                })
+                }),
         })
 end
 

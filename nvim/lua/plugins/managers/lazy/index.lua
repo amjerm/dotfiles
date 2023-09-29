@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
         --language server
+        'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
         'simrat39/rust-tools.nvim',
         'jparise/vim-graphql',
@@ -35,6 +36,7 @@ local plugins = {
                 'Wansmer/symbol-usage.nvim',
                 event = 'BufReadPre', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
         },
+        'williamboman/mason.nvim',
 
         --treesitter
         { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
