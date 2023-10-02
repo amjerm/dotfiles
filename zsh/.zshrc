@@ -2,10 +2,13 @@
 # PATH     #
 ############
 
-export PATH="${PATH}:${HOME}/.local/bin"
-export PATH="${PATH}:${HOME}/.cargo/bin"
-export PATH=$XDG_CONFIG_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$XDG_BIN_HOME:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$XDG_DATA_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
 source "$ZDOTDIR/.zsh_functions.zsh"
 
 ############
@@ -31,6 +34,8 @@ export AWS_CLI_HISTORY_FILE="$XDG_DATA_HOME/aws/history"
 export AWS_CREDENTIALS_FILE="$XDG_DATA_HOME/aws/credentials"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_DATA_HOME/aws/shared-credentials"
 export AWS_WEB_IDENTITY_TOKEN_FILE="$XDG_DATA_HOME/aws/token"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 
@@ -45,9 +50,6 @@ export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
 export PAGER='nvim -R'
 export TIME_STYLE='long-iso'
-
-# SECRETS / DYNAMIC
-$(cat "$HOME/.env")
 
 # SOFTWARE
 # nnn
@@ -68,6 +70,7 @@ alias en="edit $XDG_CONFIG_HOME/nvim"
 alias et="edit $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias ew="edit $XDG_CONFIG_HOME/wezterm/wezterm.lua"
 alias ez="edit $ZDOTDIR/.zshrc"
+alias eza="eza --icons -a"
 alias fsc="npm run cl:scopes -- -q $1"
 alias lc="ls $XDG_CONFIG_HOME"
 alias lt="ls --tree --level=2"
@@ -97,12 +100,6 @@ eval "$(zoxide init zsh)"
 ############
 
 eval "$(starship init zsh)"
-
-#######################
-# COMMAND OVERRIDES   #
-#######################
-
-alias ls="eza --icons --group-directories-first -s name -ahb"
 
 ############
 # COLORS   #
