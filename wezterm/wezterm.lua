@@ -57,7 +57,6 @@ if color_scheme == 'Gotham (custom)' then
 end
 
 local config = {
-  term = 'wezterm',
   leader = { key = 'w', mods = 'CTRL', timeout_milliseconds = 1000 },
   color_scheme = color_scheme,
   color_schemes = modified_color_schemes,
@@ -78,7 +77,7 @@ local config = {
     bottom = 0,
   },
   window_background_opacity = 0.9,
-  font_size = 20
+  font_size = 24
 }
 
 return config

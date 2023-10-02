@@ -7,11 +7,11 @@ function set_wezterm_font() {
   else
     SIZE="$1"
   fi
-  sed -i '' -E "s/font_size.*$/font_size = $SIZE/" $WEZTERM_CONFIG_FILE
+  sed -i '' -E "s/font_size.*$/font_size = $SIZE/" "$DOTFILE_REPO/wezterm/wezterm.lua"
 }
 
 function wezterm_set_color() {
-  sed -i '' -E "s/local use_color = .*$/local use_color = '$1'/" $WEZTERM_CONFIG_FILE
+  sed -i '' -E "s/local use_color = .*$/local use_color = '$1'/" "$DOTFILE_REPO/wezterm/wezterm.lua"
 }
 
 # get list of feature flags in a given staging environment
@@ -73,7 +73,7 @@ ncd ()
         echo "nnn is already running"
         return
     }
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    export NNN_TMPFILE="$XDG_CONFIG_HOME/nnn/.lastd"
     command nnn "$@"
 
     [ ! -f "$NNN_TMPFILE" ] || {

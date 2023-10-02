@@ -19,6 +19,8 @@ bindkey -s '^o' 'lfcd\n'
 # ENV      #
 ############
 
+DOTFILE_REPO="$HOME/code/amjerm/dotfiles"
+
 # XDG CONFIG FILES
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
