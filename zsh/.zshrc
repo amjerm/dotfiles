@@ -85,6 +85,10 @@ alias wtcl="cat $XDG_CONFIG_HOME/wezterm/color_schemes.txt"
 alias wtf="set_wezterm_font $1"
 alias wtfs="grep font_size $XDG_CONFIG_HOME/wezterm/wezterm.lua"
 
+# OP Vault
+alias gh="op run -- gh"
+alias sgpt="op run -- sgpt"
+
 ############
 # PLUGINS  #
 ############
