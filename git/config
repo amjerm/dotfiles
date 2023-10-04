@@ -1,6 +1,13 @@
 [user]
 	name = Adam Jermstad
 	email = dev@amjerm.me
+        signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNlN8o3agp5Mi1NM80/ApADZFE1SUJGcp2PxYg2fnYL
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  gpgsign = true
 [core]
         editor = nvim
 	excludesfile = /Users/adamjermstad/.config/git/ignore

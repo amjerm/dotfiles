@@ -3,6 +3,7 @@
 ############
 
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="$XDG_BIN_HOME:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$XDG_DATA_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
