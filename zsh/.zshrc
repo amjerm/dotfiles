@@ -65,6 +65,7 @@ export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SO
 ############
 
 alias edit="$EDITOR"
+alias eg="edit $XDG_CONFIG_HOME/git/config"
 alias email="$EMAIL"
 alias en="edit $XDG_CONFIG_HOME/nvim"
 alias et="edit $XDG_CONFIG_HOME/tmux/tmux.conf"
@@ -86,6 +87,7 @@ alias wtf="set_wezterm_font $1"
 alias wtfs="grep font_size $XDG_CONFIG_HOME/wezterm/wezterm.lua"
 
 # OP Vault
+alias aws="op plugin run -- aws"
 alias gh="op run -- gh"
 alias sgpt="op run -- sgpt"
 

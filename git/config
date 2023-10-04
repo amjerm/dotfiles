@@ -1,0 +1,60 @@
+[user]
+	name = Adam Jermstad
+	email = dev@amjerm.me
+[core]
+        editor = nvim
+	excludesfile = /Users/adamjermstad/.config/git/ignore
+	pager = "diff-so-fancy | less --tabs=4 -RFX"
+	; pager = "delta --pager=less"
+[delta]
+	navigate = true
+	light = false
+	line-numbers = true
+[pretty]
+	df = %C(auto)%h %<(6,trunc)%al %s %d %Cblue%cr %Creset
+[alias]
+	co = checkout
+	aa = add -A
+	lg-all = log --pretty=df
+	lg = lg-all -5
+	lgn = log --pretty=df -n 5 --no-merges
+	#find hash
+	fh = ! git lg-all -n 1000 | fzf | awk '{print $1}' | pbcopy
+	# find file
+	ff = ! git ls-files | fzf | pbcopy
+[tag]
+	sort = -creatordate
+[interactive]
+	diffFilter = "diff-so-fancy --patch"
+[diff]
+        tool = nvimdiff
+	colorMoved = default
+[difftool]
+        prompt = true
+[difftool "nvimdiff"]
+	layout = LOCAL,REMOTE
+[fetch]
+        prune = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+[merge]
+        tool = nvimdiff
+	conflictstyle = zdiff3
+[mergetool]
+        prompt = true
+	keepBackup = false
+[mergetool "nvimdiff"]
+	layout = LOCAL,BASE,REMOTE / MERGED
+[blame]
+	date = iso
+[log]
+	date = iso
+[include]
+	path = ~/code/cloned/themes.gitconfig
+[includeIf "gitdir:~/code/tsi/"]
+	path = ~/.config/git/config-tsi
