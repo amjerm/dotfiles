@@ -1,6 +1,6 @@
 [user]
 	name = Adam Jermstad
-	email = dev@amjerm.me
+	email = 30279337+amjerm@users.noreply.github.com
         signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNlN8o3agp5Mi1NM80/ApADZFE1SUJGcp2PxYg2fnYL
 [gpg]
   format = ssh
@@ -19,7 +19,7 @@
 	light = false
 	line-numbers = true
 [pretty]
-	df = %C(auto)%h %<(6,trunc)%al %s %d %Cblue%cr %Creset
+        df = %C(auto)%h %<(7,trunc)%an %s %d %Cblue%cr %Creset
 [alias]
 	co = checkout
 	aa = add -A
@@ -64,5 +64,3 @@
 	date = iso
 [include]
 	path = ~/code/cloned/themes.gitconfig
-[includeIf "gitdir:~/code/tsi/"]
-	path = ~/.config/git/config-tsi

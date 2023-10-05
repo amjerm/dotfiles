@@ -1,16 +1,7 @@
-############
-# PATH     #
-############
-
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="$XDG_BIN_HOME:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH=$XDG_DATA_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
-source "$ZDOTDIR/.zsh_functions.zsh"
+P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" 
+if [[ -r $P10K_INSTANT_PROMPT ]]; then
+  source $P10K_INSTANT_PROMPT
+fi
 
 ############
 # SETTINGS #
@@ -36,6 +27,7 @@ export AWS_CREDENTIALS_FILE="$XDG_DATA_HOME/aws/credentials"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_DATA_HOME/aws/shared-credentials"
 export AWS_WEB_IDENTITY_TOKEN_FILE="$XDG_DATA_HOME/aws/token"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
@@ -57,9 +49,29 @@ export TIME_STYLE='long-iso'
 BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06"
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 
-#####################
-# LOCAL VARIABLES   #
-#####################
+############
+# PATH     #
+############
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="$XDG_BIN_HOME:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$XDG_DATA_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
+
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+#############
+# FUNCTIONS #
+#############
+
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
+ZSH_FUNCS="$ZDOTDIR/.zsh_functions.zsh"
+[[ ! -f $ZSH_FUNCS ]] || source $ZSH_FUNCS
 
 ############
 # ALIASES  #
@@ -94,7 +106,8 @@ alias sgpt="op run -- sgpt"
 # PLUGINS  #
 ############
 
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+ANTIDOTE_FILE="$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+[[ ! -f $ANTIDOTE_FILE ]] || source $ANTIDOTE_FILE
 antidote load
 
 eval "$(thefuck --alias)"
@@ -104,7 +117,13 @@ eval "$(zoxide init zsh)"
 # PROMPT   #
 ############
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+
+P10K_THEME="$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
+[[ ! -f $P10K_THEME ]] || source $P10K_THEME
+
+P10K_CONFIG="$XDG_DATA_HOME/zsh/.p10k.zsh"
+[[ ! -f $P10K_CONFIG ]] || source $P10K_CONFIG
 
 ############
 # COLORS   #
@@ -114,14 +133,3 @@ ZSH_HIGHLIGHT_STYLES[single-quoted-argument]="fg=cyan,bold"
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]="fg=cyan,bold"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 
-#######################
-# APP SCRIPT RESULTS  #
-#######################
-
-# pnpm
-export PNPM_HOME="/Users/adamjermstad/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
