@@ -1,0 +1,26 @@
+display-name = "Adam Jermstad"
+downloads-dir = "~/Downloads"
+signature = "Adam Jermstad | Tech Lead | Townsquare Interactive"
+email-listing-page-size = 50
+
+[gmail]
+default = true
+email = "adam@townsquaredigital.com"
+
+backend = "imap"
+imap-host = "imap.gmail.com"
+imap-port = 993
+imap-login = "adam@townsquaredigital.com"
+imap-auth = "passwd"
+
+sender = "smtp"
+smtp-host = "smtp.gmail.com"
+smtp-port = 465
+smtp-login = "adam@townsquaredigital.com"
+smtp-auth = "passwd"
+
+[gmail.folder-aliases]
+inbox = "INBOX"
+sent = "[Gmail]/Sent Mail"
+drafts = "[Gmail]/Drafts"
+trash = "[Gmail]/Trash"

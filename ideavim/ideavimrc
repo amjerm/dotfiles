@@ -1,0 +1,9 @@
+let mapleader=","
+set clipboard=unnamedplus
+set relativenumber
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+nmap t <Action>(NextTab)
+nmap T <Action>(PreviousTab)
