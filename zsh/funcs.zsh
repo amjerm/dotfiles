@@ -13,10 +13,12 @@ function set_wezterm_font() {
   fi
   sed -i '' -E "s/font_size.*$/font_size = $SIZE/" "$DOTFILE_REPO/wezterm/wezterm.lua"
 }
+alias wtf="set_wezterm_font $1"
 
 function wezterm_set_color() {
   sed -i '' -E "s/local use_color = .*$/local use_color = '$1'/" "$DOTFILE_REPO/wezterm/wezterm.lua"
 }
+alias wtc="wezterm_set_color $1"
 
 # get list of feature flags in a given staging environment
 function ff() {

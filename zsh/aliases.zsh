@@ -16,9 +16,7 @@ alias tl="tmux ls"
 alias tn="tmux new -s (pwd | sed 's/.*\///g')"
 alias weather="curl 'wttr.in/austin?mnQF1'"
 alias weathero="curl 'wttr.in/austin?m&format=%t+%p+%m+%M\n'"
-alias wtc="wezterm_set_color $1"
 alias wtcl="cat $XDG_CONFIG_HOME/wezterm/color_schemes.txt"
-alias wtf="set_wezterm_font $1"
 alias wtfs="grep font_size $XDG_CONFIG_HOME/wezterm/wezterm.lua"
 
 # OP Vault
