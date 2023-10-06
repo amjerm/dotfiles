@@ -1,3 +1,7 @@
+function trysource() { 
+  [[ ! -f $1 ]] || source $1
+}
+
 # change font size in wezterm config
 function set_wezterm_font() {
   if [ "$1" = "large" ]; then

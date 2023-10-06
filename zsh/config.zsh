@@ -4,13 +4,6 @@ if [[ -r $P10K_INSTANT_PROMPT ]]; then
 fi
 
 ############
-# SETTINGS #
-############
-
-bindkey -v
-bindkey -s '^o' 'lfcd\n'
-
-############
 # ENV      #
 ############
 
@@ -36,19 +29,6 @@ export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export LESSHISTFILE="$XDG_STATE_HOME/less/lesshist"
 export MYCLI_HISTFILE="$XDG_STATE_HOME/mycli/mycli-history"
 
-# SETTINGS
-EMAIL='himalaya'
-export BAT_PAGER=less
-export EDITOR='nvim'
-export MANPAGER='nvim +Man!'
-export PAGER='nvim -R'
-export TIME_STYLE='long-iso'
-
-# SOFTWARE
-# nnn
-BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06"
-export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
-
 ############
 # PATH     #
 ############
@@ -70,8 +50,24 @@ esac
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
-ZSH_FUNCS="$ZDOTDIR/.zsh_functions.zsh"
-[[ ! -f $ZSH_FUNCS ]] || source $ZSH_FUNCS
+source "$XDG_CONFIG_HOME/zsh/funcs.zsh"
+
+############
+# SETTINGS #
+############
+
+bindkey -v
+bindkey -s '^o' 'lfcd\n'
+
+# SOFTWARE
+
+EMAIL='himalaya'
+export BAT_PAGER=less
+export EDITOR='nvim'
+export MANPAGER='nvim +Man!'
+export PAGER='nvim -R'
+export TIME_STYLE='long-iso'
+trysource "$XDG_CONFIG_HOME/zsh/nnn_config.zsh"
 
 ############
 # ALIASES  #
@@ -106,9 +102,7 @@ alias sgpt="op run -- sgpt"
 # PLUGINS  #
 ############
 
-ANTIDOTE_FILE="$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
-[[ ! -f $ANTIDOTE_FILE ]] || source $ANTIDOTE_FILE
-antidote load
+trysource "$XDG_CONFIG_HOME/zsh/antidote.zsh"
 
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
@@ -119,11 +113,8 @@ eval "$(zoxide init zsh)"
 
 # eval "$(starship init zsh)"
 
-P10K_THEME="$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
-[[ ! -f $P10K_THEME ]] || source $P10K_THEME
-
-P10K_CONFIG="$XDG_DATA_HOME/zsh/.p10k.zsh"
-[[ ! -f $P10K_CONFIG ]] || source $P10K_CONFIG
+trysource "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
+trysource "$XDG_DATA_HOME/zsh/.p10k.zsh"
 
 ############
 # COLORS   #

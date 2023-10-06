@@ -19,7 +19,7 @@
 	light = false
 	line-numbers = true
 [pretty]
-        df = %C(auto)%h %<(7,trunc)%an %s %d %Cblue%cr %Creset
+        df = %C(auto)%h %<(10,trunc)%an %s %d %Cblue%cr %Creset
 [alias]
 	co = checkout
 	aa = add -A
