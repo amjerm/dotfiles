@@ -19,13 +19,13 @@
 	light = false
 	line-numbers = true
 [pretty]
-        df = %C(auto)%h %<(10,trunc)%an %s %d %Cblue%cr %Creset
+        df = %C(auto)%h %G? %<(10,trunc)%an %s %d %Cblue%cr %Creset
 [alias]
 	co = checkout
 	aa = add -A
 	lg-all = log --pretty=df
-	lg = lg-all -5
-	lgn = log --pretty=df -n 5 --no-merges
+	lg = lg-all -10
+	lgn = lg --no-merges
 	#find hash
 	fh = ! git lg-all -n 1000 | fzf | awk '{print $1}' | pbcopy
 	# find file

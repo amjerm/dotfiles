@@ -13,6 +13,7 @@ DOTFILE_REPO="$HOME/code/amjerm/dotfiles"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export POWERLEVEL9K_CONFIG_FILE="$XDG_CONFIG_HOME/zsh/p10k.zsh"
 
 # XDG DATA MGMT
 export AWS_CLI_HISTORY_FILE="$XDG_DATA_HOME/aws/history"
@@ -93,7 +94,7 @@ eval "$(zoxide init zsh)"
 # eval "$(starship init zsh)"
 
 trysource "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
-trysource "$XDG_DATA_HOME/zsh/.p10k.zsh"
+trysource "$POWERLEVEL9K_CONFIG_FILE"
 
 ############
 # COLORS   #

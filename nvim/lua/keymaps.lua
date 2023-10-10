@@ -90,7 +90,8 @@ vim.keymap.set('n', '<Leader>ud', ":lua require('neotest').run.run({vim.fn.expan
 vim.keymap.set('n', '<Leader>us', ":lua require('neotest').summary.toggle()<CR>", defaultOpts)
 
 -- database queries - LEADER v
-vim.keymap.set('n', '<Leader>vll', ":DB g:dbll ", defaultOpts)
+vim.keymap.set('n', '<Leader>vtll', ":DB g:dbll ", defaultOpts)
+vim.keymap.set('n', '<Leader>vfll', ":DB g:dbll < %<CR>", defaultOpts)
 vim.keymap.set('v', '<Leader>vll', ":DB g:dbll<CR>", defaultOpts)
 
 -- debugger - LEADER x
