@@ -136,6 +136,7 @@ local plugins = {
 	--git
 	"tpope/vim-fugitive", --comprehensive git tool
 	"airblade/vim-gitgutter", --git status in gutter
+	-- "samoshkin/vim-mergetool",
 
 	--fuzzy finder
 	{
@@ -149,7 +150,7 @@ local plugins = {
 	--telescope
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "0.1.0",
+		version = "1.4.0",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },

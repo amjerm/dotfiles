@@ -26,4 +26,4 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- vim.cmd [[ autocmd BufWritePre *.{js,jsx,ts,tsx} Neoformat ]]
 
 -- default format on save
-vim.cmd([[ autocmd BufWritePre *.{html,php} lua vim.lsp.buf.format() ]])
+vim.cmd([[ autocmd BufWritePre *.{html,php,json} lua vim.lsp.buf.format() ]])

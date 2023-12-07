@@ -1,17 +1,18 @@
 [user]
 	name = Adam Jermstad
 	email = 30279337+amjerm@users.noreply.github.com
-        signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNlN8o3agp5Mi1NM80/ApADZFE1SUJGcp2PxYg2fnYL
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNlN8o3agp5Mi1NM80/ApADZFE1SUJGcp2PxYg2fnYL
 [gpg]
-  format = ssh
+	format = ssh
 [gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-  allowedSignersFile = ~/.local/share/git/allowed_signers
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	allowedSignersFile = ~/.local/share/git/allowed_signers
 [commit]
-  gpgsign = true
+        gpgSign = true
+	gpgFormat = ssh
 [core]
         editor = nvim
-	excludesfile = ~/.config/git/ignore
+	excludesFile = ~/.config/git/ignore
 	pager = "diff-so-fancy | less --tabs=4 -RFX"
 	; pager = "delta --pager=less"
 [delta]
@@ -19,12 +20,14 @@
 	light = false
 	line-numbers = true
 [pretty]
-        df = %C(auto)%h %G? %<(10,trunc)%an %s %d %Cblue%cr %Creset
+        dv = %C(auto)%h %G? %<(10,trunc)%an %s %d %Cblue%cr %Creset
+        df = %C(auto)%h %<(10,trunc)%an %s %d %Cblue%cr %Creset
 [alias]
 	co = checkout
 	aa = add -A
 	lg-all = log --pretty=df
 	lg = lg-all -10
+	lgv = log --pretty=dv -10
 	lgn = lg --no-merges
 	#find hash
 	fh = ! git lg-all -n 1000 | fzf | awk '{print $1}' | pbcopy
@@ -35,7 +38,7 @@
 [interactive]
 	diffFilter = "diff-so-fancy --patch"
 [diff]
-        tool = nvimdiff
+        tool = nvimdiff2
 	colorMoved = default
 [difftool]
         prompt = true
@@ -51,13 +54,12 @@
 [init]
 	defaultBranch = main
 [merge]
-        tool = nvimdiff
-	conflictstyle = zdiff3
+        tool = nvimdiff2
+	conflictStyle = zdiff3
 [mergetool]
         prompt = true
 	keepBackup = false
-[mergetool "nvimdiff"]
-	layout = LOCAL,BASE,REMOTE / MERGED
+	layout = MERGED
 [blame]
 	date = iso
 [log]

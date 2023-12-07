@@ -21,6 +21,7 @@ export AWS_CREDENTIALS_FILE="$XDG_DATA_HOME/aws/credentials"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_DATA_HOME/aws/shared-credentials"
 export AWS_WEB_IDENTITY_TOKEN_FILE="$XDG_DATA_HOME/aws/token"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export TERMINFO="$XDG_DATA_HOME/terminfo"
@@ -71,6 +72,10 @@ export TIME_STYLE='long-iso'
 
 trysource "$XDG_CONFIG_HOME/zsh/zvm_config.zsh"
 trysource "$XDG_CONFIG_HOME/zsh/nnn_config.zsh"
+
+# nvim
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 ############
 # ALIASES  #
