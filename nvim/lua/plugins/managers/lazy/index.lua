@@ -15,7 +15,11 @@ local plugins = {
 	--language server
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
-	"simrat39/rust-tools.nvim",
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^3", -- Recommended
+		ft = { "rust" },
+	},
 	"jparise/vim-graphql",
 	"ray-x/lsp_signature.nvim",
 	-- 'sbdchd/neoformat',

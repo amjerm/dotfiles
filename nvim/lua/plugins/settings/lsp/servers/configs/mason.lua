@@ -41,7 +41,6 @@ local handlers = {
 
 	-- rust
 	["rust_analyzer"] = function()
-		require("plugins/settings/lsp/servers/tools/rust-tools").setup(default_setup.default_plus)
 		require("plugins/settings/lsp/servers/tools/crates").setup()
 	end,
 
