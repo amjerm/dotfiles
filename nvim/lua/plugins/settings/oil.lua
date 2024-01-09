@@ -4,7 +4,7 @@ require("oil").setup({
 	},
 	keymaps = {
 		-- disabling as it interferes with window navigation keymap
-		["<C-h"] = false,
+		["<C-h>"] = false,
 		["<C-s>"] = "actions.select_split",
 		["<C-v>"] = "actions.select_vsplit",
 	},

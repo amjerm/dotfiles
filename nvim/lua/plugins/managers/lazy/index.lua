@@ -121,6 +121,9 @@ local plugins = {
 	--filesystem commands
 	"tpope/vim-eunuch",
 
+	--file manager
+	"luukvbaal/nnn.nvim",
+
 	--symbol outline
 	"stevearc/aerial.nvim",
 

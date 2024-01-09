@@ -76,6 +76,11 @@ vim.keymap.set("n", "<Leader>lr", ":LspRestart<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>ma", ":lua require('harpoon.mark').add_file()<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>mm", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", defaultOpts)
 
+-- nnn - LEADER n
+vim.keymap.set("n", "<Leader>ne", ":NnnExplorer<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>nn", ":NnnPicker<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>np", ":NnnPicker<CR>", defaultOpts)
+
 -- quickfix - LEADER q
 vim.keymap.set("n", "<Leader>qd", vim.diagnostic.setqflist, defaultOpts) -- set qf to diagnostics
 vim.keymap.set("n", "<Leader>qn", ":cn<CR>", defaultOpts)
@@ -119,4 +124,5 @@ vim.keymap.set("n", "<Leader>xv", ":Telescope dap variables<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>xx", ":lua require('dapui').toggle()<CR>", defaultOpts)
 
 -- yank - LEADER y
-vim.keymap.set("n", "<Leader>y", ':let @*=fnamemodify(expand("%"), ":~:.") . ":" . line(".")<CR>', defaultOpts)
+vim.keymap.set("n", "<Leader>yl", ':let @*=fnamemodify(expand("%"), ":~:.") . ":" . line(".")<CR>', defaultOpts)
+vim.keymap.set("n", "<Leader>yf", ':let @*=fnamemodify(expand("%"), ":~:.")<CR>', defaultOpts)

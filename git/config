@@ -33,6 +33,8 @@
 	fh = ! git lg-all -n 1000 | fzf | awk '{print $1}' | pbcopy
 	# find file
 	ff = ! git ls-files | fzf | pbcopy
+	# grep nc
+	nc = ! rg -i nocommit $(git diff --name-only HEAD)
 [tag]
 	sort = -creatordate
 [interactive]

@@ -43,6 +43,7 @@
   "neotest-rust": { "branch": "main", "commit": "f4e58d5278344440f65c5a5177f16711337e44f7" },
   "neotest-vim-test": { "branch": "master", "commit": "75c4228882ae4883b11bfce9b8383e637eb44192" },
   "neovim": { "branch": "main", "commit": "92762f4fa2144c05db760ea254f4c399a56a7ef5" },
+  "nnn.nvim": { "branch": "master", "commit": "4616ec65eb0370af548e356c3ec542c1b167b415" },
   "no-clown-fiesta.nvim": { "branch": "master", "commit": "cba991db027d696d99b15e6d3ea6f29f59ad2963" },
   "nord-vim": { "branch": "main", "commit": "f13f5dfbb784deddbc1d8195f34dfd9ec73e2295" },
   "nordic.nvim": { "branch": "main", "commit": "be1bab59c56668af7020af11190ec7fcd25d59b4" },
