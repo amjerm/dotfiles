@@ -56,12 +56,11 @@
 [init]
 	defaultBranch = main
 [merge]
-        tool = nvimdiff2
+        tool = nvimdiff3
 	conflictStyle = zdiff3
 [mergetool]
         prompt = true
 	keepBackup = false
-	layout = MERGED
 [blame]
 	date = iso
 [log]

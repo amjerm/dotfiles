@@ -20,10 +20,13 @@ local plugins = {
 		version = "^3", -- Recommended
 		ft = { "rust" },
 	},
+	"nvimdev/lspsaga.nvim",
+	-- { "nvimdev/lspsaga.nvim", opts = {} },
 	"jparise/vim-graphql",
 	"ray-x/lsp_signature.nvim",
 	-- 'sbdchd/neoformat',
-	-- 'lukas-reineke/lsp-format.nvim',
+	"lukas-reineke/lsp-format.nvim",
+	"lvimuser/lsp-inlayhints.nvim",
 	"stevearc/conform.nvim",
 	"jose-elias-alvarez/typescript.nvim",
 	{
@@ -51,6 +54,7 @@ local plugins = {
 	{
 		"folke/trouble.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons" },
+		opts = {},
 	},
 
 	--autocomplete
@@ -67,7 +71,6 @@ local plugins = {
 
 	--snippets
 	"SirVer/ultisnips",
-	"honza/vim-snippets",
 
 	--shortcuts
 	"tpope/vim-unimpaired",
@@ -102,9 +105,15 @@ local plugins = {
 	"jdsimcoe/abstract.vim",
 	"rose-pine/neovim",
 	"aktersnurra/no-clown-fiesta.nvim",
+	{
+		"craftzdog/solarized-osaka.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 
 	--icons
-	"kyazdani42/nvim-web-devicons",
+	{ "kyazdani42/nvim-web-devicons", opts = {} },
 
 	--statusline
 	{
@@ -126,23 +135,51 @@ local plugins = {
 	"tpope/vim-eunuch",
 
 	--file manager
-	"luukvbaal/nnn.nvim",
+	{ "luukvbaal/nnn.nvim", opts = {} },
 
-	--symbol outline
-	"stevearc/aerial.nvim",
+	--navigation
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+	},
+
+	--keymap guild
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {},
+	},
 
 	--marks
 	"ThePrimeagen/harpoon",
 
-	--comment toggle
+	--folds
+	{
+		"chrisgrieser/nvim-origami",
+		event = "BufReadPost", -- later or on keypress would prevent saving folds
+		opts = true, -- needed even when using default config
+	},
+
+	--comments
 	"tpope/vim-commentary",
+	{
+		"kkoomen/vim-doge",
+		build = ":call doge#install()",
+	},
 
 	--search and replace
 	"tpope/vim-abolish",
 
 	--git
 	"tpope/vim-fugitive", --comprehensive git tool
-	"airblade/vim-gitgutter", --git status in gutter
+	{ "lewis6991/gitsigns.nvim", opts = {} }, -- alternative to gitgutter
+	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 	-- "samoshkin/vim-mergetool",
 
 	--fuzzy finder
@@ -169,10 +206,18 @@ local plugins = {
 	"tpope/vim-surround",
 
 	--auto-close brackets
-	"jiangmiao/auto-pairs",
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {},
+	},
 
 	--split and join lines
-	"AndrewRadev/splitjoin.vim",
+	{
+		"Wansmer/treesj",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {},
+	},
 
 	--detect buffer options
 	"tpope/vim-sleuth",
@@ -201,12 +246,6 @@ local plugins = {
 
 	--databases
 	"tpope/vim-dadbod",
-
-	--email
-	"https://git.sr.ht/~soywod/himalaya-vim",
-
-	--markdown preview
-	{ "toppair/peek.nvim", run = "deno task --quiet build:fast" },
 }
 
 require("lazy").setup(plugins)

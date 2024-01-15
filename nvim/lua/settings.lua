@@ -29,6 +29,7 @@ vim.o.softtabstop = 2
 vim.o.spell = false
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.startofline = true
 vim.o.termguicolors = true
 vim.o.updatetime = 300
 vim.wo.signcolumn = "yes"

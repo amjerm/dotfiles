@@ -78,12 +78,6 @@ trysource "$XDG_CONFIG_HOME/zsh/nnn_config.zsh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 ############
-# ALIASES  #
-############
-
-trysource "$XDG_CONFIG_HOME/zsh/aliases.zsh"
-
-############
 # PLUGINS  #
 ############
 
@@ -109,3 +103,8 @@ ZSH_HIGHLIGHT_STYLES[single-quoted-argument]="fg=cyan,bold"
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]="fg=cyan,bold"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 
+############
+# ALIASES  #
+############
+
+trysource "$XDG_CONFIG_HOME/zsh/aliases.zsh"
