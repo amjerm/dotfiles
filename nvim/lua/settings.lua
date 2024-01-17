@@ -33,3 +33,6 @@ vim.o.startofline = true
 vim.o.termguicolors = true
 vim.o.updatetime = 300
 vim.wo.signcolumn = "yes"
+
+-- switches
+-- vim.o.snippet = "luasnip"

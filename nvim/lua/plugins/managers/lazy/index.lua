@@ -21,10 +21,8 @@ local plugins = {
 		ft = { "rust" },
 	},
 	"nvimdev/lspsaga.nvim",
-	-- { "nvimdev/lspsaga.nvim", opts = {} },
 	"jparise/vim-graphql",
 	"ray-x/lsp_signature.nvim",
-	-- 'sbdchd/neoformat',
 	"lukas-reineke/lsp-format.nvim",
 	"lvimuser/lsp-inlayhints.nvim",
 	"stevearc/conform.nvim",
@@ -51,26 +49,29 @@ local plugins = {
 	"nvim-treesitter/nvim-treesitter-textobjects",
 
 	--diagnostics
-	{
-		"folke/trouble.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-		opts = {},
-	},
+	{ "folke/trouble.nvim", dependencies = { "kyazdani42/nvim-web-devicons" } },
 
 	--autocomplete
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/cmp-git",
-	"hrsh7th/cmp-path",
-	"quangnguyen30192/cmp-nvim-ultisnips",
-	"onsails/lspkind.nvim", --pictograms in cmp
+	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lsp-signature-help", --signature help
-	"folke/neodev.nvim", --lua signature help
+	"hrsh7th/cmp-path",
+	"hrsh7th/nvim-cmp",
+	"onsails/lspkind.nvim", --pictograms in cmp
+	"quangnguyen30192/cmp-nvim-ultisnips",
+
+	--highlight
+	"RRethy/vim-illuminate",
 
 	--snippets
 	"SirVer/ultisnips",
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		build = "make install_jsregexp",
+	},
 
 	--shortcuts
 	"tpope/vim-unimpaired",

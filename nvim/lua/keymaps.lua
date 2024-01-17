@@ -17,6 +17,8 @@ vim.keymap.set("n", "gb", ":Git blame<CR>", defaultOpts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, defaultOpts)
 vim.keymap.set("n", "gh", vim.lsp.buf.signature_help, defaultOpts)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, defaultOpts)
+vim.keymap.set("n", "gk", ":Files<CR>", defaultOpts)
+vim.keymap.set("n", "gq", ":TroubleToggle quickfix<CR>", defaultOpts)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, defaultOpts)
 vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, defaultOpts)
 vim.keymap.set("o", "r", ":lua require('flash').remote()<CR>")
@@ -31,6 +33,7 @@ vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", defaultOpts) -- window nav
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", defaultOpts) -- window nav
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", defaultOpts) -- window nav
 vim.keymap.set("n", "<C-t>", ":TroubleToggle<CR>", defaultOpts) -- window nav
+vim.keymap.set("n", "<C-x>", ":Dashboard<CR>", defaultOpts) -- window nav
 
 -- other
 vim.keymap.set("n", "<Esc>", ":noh<CR>", defaultOpts) -- find file
@@ -109,6 +112,14 @@ vim.keymap.set("n", "<Leader>np", ":NnnPicker<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>qd", vim.diagnostic.setqflist, defaultOpts) -- set qf to diagnostics
 vim.keymap.set("n", "<Leader>qn", ":cn<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>qp", ":cp<CR>", defaultOpts)
+
+-- snippets - LEADER s
+vim.keymap.set("n", "<Leader>sr", "<cmd>source ~/.config/nvim/after/ftplugin/luasnip.lua<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>se", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", defaultOpts)
+
+-- trouble - LEADER t
+vim.keymap.set("n", "<Leader>tt", ":TroubleToggle<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tr", ":TroubleRefresh<CR>", defaultOpts)
 
 -- unit tests - LEADER u
 vim.keymap.set("n", "<Leader>un", ":lua require('neotest').run.run()<CR>", defaultOpts)
