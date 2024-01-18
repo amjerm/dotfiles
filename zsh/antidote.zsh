@@ -1,4 +1,3 @@
-#fpath+=("$(brew --prefix)/opt/antidote/share/antidote")
 fpath+=($ANTIDOTE_FN_DIR)
 autoload -Uz $fpath[-1]/antidote
 

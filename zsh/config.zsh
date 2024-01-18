@@ -16,7 +16,8 @@ if [[ $PKG_MGR == "homebrew" ]]; then
   POWERLEVEL_THEME_FILE="$PKG_MGR_HOME/powerlevel10k/powerlevel10k.zsh-theme"
 elif [[ $PKG_MGR == "pacman" ]]; then
   # do something specific to pacman  
-	export POWERLEVEL_THEME_FILE="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+  PKG_MGR_HOME="/usr/share"
+  export POWERLEVEL_THEME_FILE="$PKG_MGR_HOME/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
 	  echo "Pacman package manager detected"
 else
   echo "Package manager not recognized"
