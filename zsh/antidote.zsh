@@ -1,4 +1,5 @@
-fpath+=("$(brew --prefix)/opt/antidote/share/antidote")
+#fpath+=("$(brew --prefix)/opt/antidote/share/antidote")
+fpath+=($ANTIDOTE_FN_DIR)
 autoload -Uz $fpath[-1]/antidote
 
 PLUGINS_TXT="$XDG_CONFIG_HOME/zsh/plugins.txt"

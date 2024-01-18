@@ -1,3 +1,5 @@
+source ~/.zshenv
+
 P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" 
 if [[ -r $P10K_INSTANT_PROMPT ]]; then
   source $P10K_INSTANT_PROMPT
@@ -14,7 +16,8 @@ if [[ $PKG_MGR == "homebrew" ]]; then
   POWERLEVEL_THEME_FILE="$PKG_MGR_HOME/powerlevel10k/powerlevel10k.zsh-theme"
 elif [[ $PKG_MGR == "pacman" ]]; then
   # do something specific to pacman  
-  echo "Pacman package manager detected"
+	export POWERLEVEL_THEME_FILE="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+	  echo "Pacman package manager detected"
 else
   echo "Package manager not recognized"
 fi
@@ -108,9 +111,9 @@ trysource "$POWERLEVEL9K_CONFIG_FILE"
 # COLORS   #
 ############
 
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]="fg=cyan,bold"
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]="fg=cyan,bold"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+#ZSH_HIGHLIGHT_STYLES[single-quoted-argument]="fg=cyan,bold"
+#ZSH_HIGHLIGHT_STYLES[double-quoted-argument]="fg=cyan,bold"
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 
 ############
 # ALIASES  #
