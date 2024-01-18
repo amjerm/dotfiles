@@ -3,6 +3,22 @@ if [[ -r $P10K_INSTANT_PROMPT ]]; then
   source $P10K_INSTANT_PROMPT
 fi
 
+if [[ $PKG_MGR == "homebrew" ]]; then
+  # do something specific to homebrew
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/sbin:$PATH"
+  PKG_MGR_HOME="$(brew --prefix)/share"
+  # nvm
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  POWERLEVEL_THEME_FILE="$PKG_MGR_HOME/powerlevel10k/powerlevel10k.zsh-theme"
+elif [[ $PKG_MGR == "pacman" ]]; then
+  # do something specific to pacman  
+  echo "Pacman package manager detected"
+else
+  echo "Package manager not recognized"
+fi
+
 ############
 # ENV      #
 ############
