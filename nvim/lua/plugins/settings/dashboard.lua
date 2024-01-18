@@ -48,16 +48,10 @@ require("dashboard").setup({
 				action = "Files",
 			},
 			{
-				icon = "  ",
-				desc = "Git changed files",
-				key = "g",
-				action = "Telescope git_status",
-			},
-			{
-				icon = "  ",
-				desc = "Marks (Harpoon)",
-				key = "m",
-				action = "require('harpoon.ui').toggle_quick_menu()",
+				icon = "󱏒  ",
+				desc = "nnn",
+				key = "n",
+				action = "NnnPicker",
 			},
 			{
 				icon = "󰭎  ",
@@ -66,10 +60,16 @@ require("dashboard").setup({
 				action = "Telescope",
 			},
 			{
-				icon = "  ",
-				desc = "Empty buffer",
-				key = "e",
-				action = "enew",
+				icon = "  ",
+				desc = "Marks (Harpoon)",
+				key = "m",
+				action = "require('harpoon.ui').toggle_quick_menu()",
+			},
+			{
+				icon = "  ",
+				desc = "Git changed files",
+				key = "g",
+				action = "Telescope git_status",
 			},
 			{
 				icon = "  ",
@@ -82,6 +82,12 @@ require("dashboard").setup({
 				desc = "Lazy sync",
 				key = "l",
 				action = "Lazy sync",
+			},
+			{
+				icon = "  ",
+				desc = "Empty buffer",
+				key = "e",
+				action = "enew",
 			},
 			{
 				icon = "  ",

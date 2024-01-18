@@ -125,7 +125,7 @@ local plugins = {
 
 	--splash screen
 	{
-		"glepnir/dashboard-nvim",
+		"nvimdev/dashboard-nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 	},
 
@@ -136,7 +136,7 @@ local plugins = {
 	"tpope/vim-eunuch",
 
 	--file manager
-	{ "luukvbaal/nnn.nvim", opts = {} },
+	"luukvbaal/nnn.nvim",
 
 	--navigation
 	{
