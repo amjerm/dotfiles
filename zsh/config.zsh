@@ -35,8 +35,6 @@ export MYCLI_HISTFILE="$XDG_STATE_HOME/mycli/mycli-history"
 # PATH     #
 ############
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="$XDG_BIN_HOME:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$XDG_DATA_HOME/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
@@ -50,8 +48,7 @@ esac
 # FUNCTIONS #
 #############
 
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
+fpath+=("$PKG_MGR_HOME/zsh/site-functions")
 source "$XDG_CONFIG_HOME/zsh/funcs.zsh"
 
 ############
@@ -73,10 +70,6 @@ export TIME_STYLE='long-iso'
 trysource "$XDG_CONFIG_HOME/zsh/zvm_config.zsh"
 trysource "$XDG_CONFIG_HOME/zsh/nnn_config.zsh"
 
-# nvim
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
 ############
 # PLUGINS  #
 ############
@@ -92,7 +85,7 @@ eval "$(zoxide init zsh)"
 
 # eval "$(starship init zsh)"
 
-trysource "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
+trysource "$POWERLEVEL_THEME_FILE"
 trysource "$POWERLEVEL9K_CONFIG_FILE"
 
 ############
