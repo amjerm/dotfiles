@@ -145,6 +145,26 @@ ls.add_snippets("php", {
 			}
 		)
 	),
+	s(
+		"cl",
+		fmt(
+			[[
+		<?php
+
+		namespace Tsi\{namespace}
+
+		class {class_name}
+		{{
+			{content}
+		}}
+		]],
+			{
+				namespace = i(2),
+				class_name = i(1),
+				content = i(0),
+			}
+		)
+	),
 })
 
 ls.add_snippets("typescriptreact", {
