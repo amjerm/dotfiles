@@ -38,9 +38,12 @@ vim.keymap.set("n", "<C-x>", ":Dashboard<CR>", defaultOpts) -- window nav
 -- other
 vim.keymap.set("n", "<Esc>", ":noh<CR>", defaultOpts) -- find file
 vim.keymap.set("n", "<Space>", "za", defaultOpts) -- toggle fold
+vim.keymap.set("n", "<Tab>", ":Lspsaga outline<CR>", defaultOpts) -- show outline
+vim.keymap.set("n", "Q", ":q<CR>", defaultOpts) -- quit with Q
 vim.keymap.set("n", "?", ":WhichKey<CR>", defaultOpts) -- toggle fold
 
 -- buffers - LEADER b
+vim.keymap.set("n", "<Leader>bb", telescopeBuiltin.buffers, defaultOpts)
 vim.keymap.set("n", "<Leader>bl", ":redir! @a | silent ls | redir END | new | put! a<CR>", defaultOpts) -- ls in buffer
 
 -- diagnostics - LEADER d
@@ -95,7 +98,6 @@ vim.keymap.set("n", "<Leader>lf", function()
 	vim.lsp.buf.format({ async = true })
 end, defaultOpts)
 vim.keymap.set("n", "<Leader>ll", ":Lspsaga ", defaultOpts)
-vim.keymap.set("n", "<Leader>lo", ":Lspsaga outline<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>lr", ":Lspsaga rename<CR>", defaultOpts)
 -- vim.keymap.set("n", "<Leader>lr", vim.lsp.buf.rename, defaultOpts)
 vim.keymap.set("n", "<Leader>lv", ":lua require('flash').treesitter()<CR>", defaultOpts)

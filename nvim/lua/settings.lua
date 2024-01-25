@@ -1,5 +1,5 @@
 -- GLOBALS
-vim.g.mapleader = ","
+vim.g.mapleader = ";"
 vim.g.vim_markdown_conceal = 0
 vim.g.vim_markdown_conceal_code_blocks = 0
 vim.g["&t_EI"] = "<Esc>]50;CursorShape=3x7"
@@ -24,7 +24,8 @@ vim.o.number = true
 vim.o.paste = false
 vim.o.pyxversion = 3
 vim.o.relativenumber = true
-vim.o.showbreak = "… "
+-- vim.o.showbreak = "… "
+vim.o.showbreak = "↳"
 vim.o.showtabline = 2
 vim.o.smartcase = true
 vim.o.softtabstop = 2
@@ -35,8 +36,3 @@ vim.o.startofline = true
 vim.o.termguicolors = true
 vim.o.updatetime = 300
 vim.wo.signcolumn = "yes"
-
--- highlights
-vim.api.nvim_set_hl(0, "Normal", { ctermfg = "NONE", fg = "NONE" })
-vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#888ca6" })
-vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#2aa889" })
