@@ -9,4 +9,3 @@ set rtp+=/opt/homebrew/opt/fzf
 syntax on
 filetype plugin on
 set hidden
-hi Normal guibg=NONE ctermbg=NONE

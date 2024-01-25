@@ -8,6 +8,7 @@ vim.g["&t_SR"] = "<Esc>]50;CursorShape=2x7"
 
 -- OPTIONS
 vim.o.background = "dark"
+vim.o.breakindent = true
 vim.o.clipboard = "unnamedplus"
 vim.o.colorcolumn = "+0,160"
 vim.o.cursorline = true
@@ -23,6 +24,7 @@ vim.o.number = true
 vim.o.paste = false
 vim.o.pyxversion = 3
 vim.o.relativenumber = true
+vim.o.showbreak = "… "
 vim.o.showtabline = 2
 vim.o.smartcase = true
 vim.o.softtabstop = 2
@@ -34,5 +36,7 @@ vim.o.termguicolors = true
 vim.o.updatetime = 300
 vim.wo.signcolumn = "yes"
 
--- switches
--- vim.o.snippet = "luasnip"
+-- highlights
+vim.api.nvim_set_hl(0, "Normal", { ctermfg = "NONE", fg = "NONE" })
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#888ca6" })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#2aa889" })
