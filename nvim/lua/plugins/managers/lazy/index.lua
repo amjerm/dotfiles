@@ -64,6 +64,7 @@ local plugins = {
 
 	--highlight
 	"RRethy/vim-illuminate",
+	{ "rasulomaroff/reactive.nvim" },
 
 	--snippets
 	"SirVer/ultisnips",
@@ -88,6 +89,7 @@ local plugins = {
 	{ "savq/melange-nvim", name = "melange", priority = 1000 },
 	{ "embark-theme/vim", name = "embark", priority = 1000 },
 	"ghifarit53/tokyonight-vim",
+	{ "fcancelinha/northern.nvim", branch = "master", priority = 1000 },
 	{
 		"AlexvZyl/nordic.nvim",
 		lazy = false,
@@ -214,11 +216,7 @@ local plugins = {
 	},
 
 	--split and join lines
-	{
-		"Wansmer/treesj",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		opts = {},
-	},
+	{ "Wansmer/treesj", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 
 	--detect buffer options
 	"tpope/vim-sleuth",
@@ -243,6 +241,16 @@ local plugins = {
 			"haydenmeade/neotest-jest",
 			"rouge8/neotest-rust",
 		},
+	},
+
+	--markdown
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
 	},
 
 	--databases

@@ -41,6 +41,10 @@ vim.keymap.set("n", "<Space>", "za", defaultOpts) -- toggle fold
 vim.keymap.set("n", "<Tab>", ":Lspsaga outline<CR>", defaultOpts) -- show outline
 vim.keymap.set("n", "Q", ":q<CR>", defaultOpts) -- quit with Q
 vim.keymap.set("n", "?", ":WhichKey<CR>", defaultOpts) -- toggle fold
+vim.keymap.set("n", "|", ":Dashboard<CR>", defaultOpts) -- window nav
+
+-- movement $ - LEADER ;
+vim.keymap.set("n", "<Leader>;", "$", defaultOpts)
 
 -- buffers - LEADER b
 vim.keymap.set("n", "<Leader>bb", telescopeBuiltin.buffers, defaultOpts)
@@ -55,34 +59,39 @@ vim.keymap.set("n", "<Leader>dq", vim.diagnostic.setqflist, defaultOpts)
 vim.keymap.set("n", "<Leader>dt", ":TroubleToggle<CR>", defaultOpts)
 
 -- find - LEADER f
+vim.keymap.set("n", "<Leader>f.", telescopeBuiltin.resume, defaultOpts)
+vim.keymap.set("n", "<Leader>f/", telescopeBuiltin.current_buffer_fuzzy_find, defaultOpts)
+vim.keymap.set("n", "<Leader>fD", ":Telescope diagnostics<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>fa", telescopeBuiltin.resume, defaultOpts)
 vim.keymap.set("n", "<Leader>fb", telescopeBuiltin.buffers, defaultOpts)
 vim.keymap.set("n", "<Leader>fc", telescopeBuiltin.command_history, defaultOpts)
 vim.keymap.set("n", "<Leader>fd", ":Telescope diagnostics bufnr=0<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>fD", ":Telescope diagnostics<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>ff", ":Telescope<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>fj", telescopeBuiltin.jumplist, defaultOpts)
 vim.keymap.set("n", "<Leader>fk", telescopeBuiltin.keymaps, defaultOpts)
 vim.keymap.set("n", "<Leader>fl", telescopeBuiltin.loclist, defaultOpts)
-vim.keymap.set("n", "<Leader>fn", ":grep nocommit<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>fm", ":Telescope treesitter<CR>method", defaultOpts)
 vim.keymap.set("n", "<Leader>fn", ":Telescope current_buffer_fuzzy_find<CR>function", defaultOpts)
--- vim.keymap.set("n", "<Leader>fp", ":Telescope find_files<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>fp", ":Files<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>fo", telescopeBuiltin.vim_options, defaultOpts)
 vim.keymap.set("n", "<Leader>fr", telescopeBuiltin.registers, defaultOpts)
+vim.keymap.set("n", "<Leader>fs", telescopeBuiltin.spell_suggest, defaultOpts)
 vim.keymap.set("n", "<Leader>ft", telescopeBuiltin.treesitter, defaultOpts)
 vim.keymap.set("n", "<Leader>fu", telescopeBuiltin.grep_string, defaultOpts)
 vim.keymap.set("n", "<Leader>fx", ":Telescope dap commands<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>f/", telescopeBuiltin.current_buffer_fuzzy_find, defaultOpts)
-vim.keymap.set("n", "<Leader>f.", telescopeBuiltin.resume, defaultOpts)
 
 -- git - LEADER g
+vim.keymap.set("n", "<Leader>ga", ":Gitsigns stage_hunk<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gb", ":G blame<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gc", ":Commits --pretty=df<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gd", ":Gvdiffsplit!<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gh", ":BCommits --pretty=df<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gi", ":Gitsigns preview_hunk_inline<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gs", ":Telescope git_status<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>gu", ":Gitsigns undo_stage_hunk<CR>", defaultOpts)
+
+-- movement ^ - LEADER h
+vim.keymap.set("n", "<Leader>h", "^", defaultOpts)
+vim.keymap.set("n", "<Leader>H", "0", defaultOpts)
 
 -- splitjoin - LEADER j
 vim.keymap.set("n", "<Leader>jj", ":lua require('treesj').split()<CR>", defaultOpts)
@@ -111,8 +120,13 @@ vim.keymap.set("n", "<Leader>ne", ":NnnExplorer<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>nn", ":NnnPicker<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>np", ":NnnPicker<CR>", defaultOpts)
 
+-- options - LEADER o
+vim.keymap.set("n", "<Leader>os", function()
+	vim.opt.spell = not (vim.opt.spell:get())
+end, defaultOpts)
+
 -- quickfix - LEADER q
-vim.keymap.set("n", "<Leader>qd", vim.diagnostic.setqflist, defaultOpts) -- set qf to diagnostics
+vim.keymap.set("n", "<Leader>qd", vim.diagnostic.setqflist, defaultOpts)
 vim.keymap.set("n", "<Leader>qn", ":cn<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>qp", ":cp<CR>", defaultOpts)
 
@@ -123,6 +137,7 @@ vim.keymap.set("n", "<Leader>se", ":lua require('luasnip.loaders').edit_snippet_
 -- trouble - LEADER t
 vim.keymap.set("n", "<Leader>tt", ":TroubleToggle<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>tr", ":TroubleRefresh<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tq", ":TroubleToggle quickfix<CR>", defaultOpts)
 
 -- unit tests - LEADER u
 vim.keymap.set("n", "<Leader>un", ":lua require('neotest').run.run()<CR>", defaultOpts)

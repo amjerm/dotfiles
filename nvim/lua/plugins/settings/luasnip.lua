@@ -165,6 +165,19 @@ ls.add_snippets("php", {
 			}
 		)
 	),
+	s(
+		"prov",
+		fmt(
+			[[
+		/**
+		* @dataProvider {provider}
+		*/
+		]],
+			{
+				provider = i(0),
+			}
+		)
+	),
 })
 
 ls.add_snippets("typescriptreact", {

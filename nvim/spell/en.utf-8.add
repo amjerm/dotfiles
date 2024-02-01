@@ -204,3 +204,16 @@ ClientInteraction
 selectClientInteractionsByContactOnly
 ClientContact
 ClientContacts
+Freshdesk
+expectException
+sm
+freshdesk
+hasDuplicateValueNoFieldProvider
+hasInvalidField
+hasDuplicateValueProvider
+errorForFieldProvider
+ueiResponseProvider
+hasInvalidValueNoFieldProvider
+hasInvalidValueProvider
+splitjoin
+#nn

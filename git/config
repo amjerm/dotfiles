@@ -40,12 +40,12 @@
 [interactive]
 	diffFilter = "diff-so-fancy --patch"
 [diff]
-        tool = nvimdiff2
+        tool = nvimdiff
 	colorMoved = default
 [difftool]
         prompt = true
 [difftool "nvimdiff"]
-	layout = LOCAL,REMOTE
+	layout = "MERGED"
 [fetch]
         prune = true
 [filter "lfs"]
