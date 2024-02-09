@@ -135,9 +135,11 @@ vim.keymap.set("n", "<Leader>sr", "<cmd>source ~/.config/nvim/after/ftplugin/lua
 vim.keymap.set("n", "<Leader>se", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", defaultOpts)
 
 -- trouble - LEADER t
-vim.keymap.set("n", "<Leader>tt", ":TroubleToggle<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>tr", ":TroubleRefresh<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>td", ":TroubleToggle document_diagnostics<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>tq", ":TroubleToggle quickfix<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tr", ":TroubleRefresh<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tt", ":TroubleToggle<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tw", ":TroubleToggle workspace_diagnostics<CR>", defaultOpts)
 
 -- unit tests - LEADER u
 vim.keymap.set("n", "<Leader>un", ":lua require('neotest').run.run()<CR>", defaultOpts)

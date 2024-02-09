@@ -29,6 +29,14 @@ function get_ticket() {
   jira issue list -s~Closed -a$(jira me) --plain --columns KEY,SUMMARY | fzf
 }
 
+function get_ticket_status() {
+    jira issue view $1 | rg $1
+}
+
+function list_one_ticket() {
+    jira issue list -q "id = TI-$1 --columns" key,status,summary
+}
+
 function make_branch() { 
   get_ticket | branchify -p adam -t $1
 }

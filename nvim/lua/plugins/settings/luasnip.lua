@@ -180,6 +180,39 @@ ls.add_snippets("php", {
 	),
 })
 
+ls.add_snippets("typescript", {
+	s(
+		"lg",
+		fmt(
+			[[
+	// NOCOMMIT
+	console.log('amjerm - {label}', {data})
+	]],
+			{
+				label = i(1),
+				data = i(0),
+			}
+		)
+	),
+	s(
+		"try",
+		fmt(
+			[[
+			try {
+				<try>
+			} catch (err) {
+				<catch>
+			}
+		]],
+			{
+				catch = i(1, "console.error(err)"),
+				try = i(0),
+			},
+			{ delimiters = "<>" }
+		)
+	),
+})
+
 ls.add_snippets("typescriptreact", {
 	s(
 		"rc",

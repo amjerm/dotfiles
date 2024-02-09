@@ -85,6 +85,12 @@ require("dashboard").setup({
 				action = "Lazy sync",
 			},
 			{
+				icon = "󰿶  ",
+				desc = "Check health",
+				key = "c",
+				action = "checkhealth",
+			},
+			{
 				icon = "  ",
 				desc = "Empty buffer",
 				key = "e",
