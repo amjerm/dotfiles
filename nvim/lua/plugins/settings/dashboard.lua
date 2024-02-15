@@ -1,24 +1,3 @@
--- local header2 = {
---         [[]],
---         [[]],
---         [[]],
---         [[]],
---         [[]],
---         [[]],
---         [[]],
---         [[╔══╗ ╔╗   ╔═══╗╔═══╗╔╗╔═╗    ╔═══╗╔═══╗╔═══╗╔═══╗╔═══╗╔═╗ ╔╗    ╔═══╗╔════╗╔╗ ╔╗ ╔═══╗ ╔═══╗]],
---         [[║╔╗║ ║║   ║╔═╗║║╔═╗║║║║╔╝    ║╔═╗║║╔═╗║║╔═╗║║╔══╝║╔══╝║║╚╗║║    ║╔═╗║║╔╗╔╗║║║ ║║ ║╔══╝ ║╔══╝]],
---         [[║╚╝╚╗║║   ║║ ║║║║ ╚╝║╚╝╝     ║╚══╗║║ ╚╝║╚═╝║║╚══╗║╚══╗║╔╗╚╝║    ║╚══╗╚╝║║╚╝║║ ║║ ║╚══╗ ║╚══╗]],
---         [[║╔═╗║║║ ╔╗║╚═╝║║║ ╔╗║╔╗║     ╚══╗║║║ ╔╗║╔╗╔╝║╔══╝║╔══╝║║╚╗║║    ╚══╗║  ║║  ║║ ║║ ║╔══╝ ║╔══╝]],
---         [[║╚═╝║║╚═╝║║╔═╗║║╚═╝║║║║╚╗    ║╚═╝║║╚═╝║║║║╚╗║╚══╗║╚══╗║║ ║║║    ║╚═╝║ ╔╝╚╗ ║╚═╝║╔╝╚╗  ╔╝╚╗  ]],
---         [[╚═══╝╚═══╝╚╝ ╚╝╚═══╝╚╝╚═╝    ╚═══╝╚═══╝╚╝╚═╝╚═══╝╚═══╝╚╝ ╚═╝    ╚═══╝ ╚══╝ ╚═══╝╚══╝  ╚══╝  ]],
---         [[]],
---         [[]],
---         [[]],
---         [[]],
---         [[]],
--- }
-
 local header = {
 	[[]],
 	[[]],
@@ -36,73 +15,102 @@ local header = {
 	[[]],
 }
 
-require("dashboard").setup({
-	theme = "doom",
-	event = "VimEnter",
-	config = {
-		header = header,
-		center = {
-			{
-				icon = "󰥨  ",
-				desc = "Find files",
-				key = "f",
-				action = "Files",
-			},
-			{
-				icon = "󱏒  ",
-				desc = "nnn",
-				key = "n",
-				action = "NnnPicker",
-			},
-			{
-				icon = "󰭎  ",
-				desc = "Telescope",
-				key = "t",
-				action = "Telescope",
-			},
-			{
-				icon = "  ",
-				desc = "Marks (Harpoon)",
-				key = "m",
-				action = "require('harpoon.ui').toggle_quick_menu()",
-			},
-			{
-				icon = "  ",
-				desc = "Git changed files",
-				key = "g",
-				action = "Telescope git_status",
-			},
-			{
-				icon = "  ",
-				desc = "TSUpdate",
-				key = "s",
-				action = "TSUpdate",
-			},
-			{
-				icon = "  ",
-				desc = "Lazy sync",
-				key = "l",
-				action = "Lazy sync",
-			},
-			{
-				icon = "󰿶  ",
-				desc = "Check health",
-				key = "c",
-				action = "checkhealth",
-			},
-			{
-				icon = "  ",
-				desc = "Empty buffer",
-				key = "e",
-				action = "enew",
-			},
-			{
-				icon = "  ",
-				desc = "Quit",
-				key = "q",
-				action = "q",
-			},
-		},
-		footer = {}, --your footer
+local operations = {
+	{
+		icon = "󰥨  ",
+		desc = "Find files",
+		group = "Number",
+		key = "f",
+		action = "Files",
 	},
+	-- {
+	-- 	icon = "󱏒  ",
+	-- 	desc = "nnn",
+	-- 	key = "n",
+	-- 	action = "NnnPicker",
+	-- },
+	-- {
+	-- 	icon = "  ",
+	-- 	desc = "Oil",
+	-- 	key = "o",
+	-- 	action = "Oil",
+	-- },
+	{
+		icon = "󰭎  ",
+		desc = "Telescope",
+		group = "Constant",
+		key = "t",
+		action = "Telescope",
+	},
+	-- {
+	-- 	icon = "  ",
+	-- 	desc = "Marks (Harpoon)",
+	-- 	key = "m",
+	-- 	action = "require('harpoon.ui').toggle_quick_menu()",
+	-- },
+	-- {
+	-- 	icon = "  ",
+	-- 	desc = "Git changed files",
+	-- 	key = "g",
+	-- 	action = "Telescope git_status",
+	-- },
+	{
+		icon = "  ",
+		desc = "TSUpdate",
+		group = "Function",
+		key = "s",
+		action = "TSUpdate",
+	},
+	{
+		icon = "  ",
+		desc = "Lazy sync",
+		group = "SpellLocal",
+		key = "l",
+		action = "Lazy sync",
+	},
+	{
+		icon = "󰿶  ",
+		desc = "Check health",
+		group = "Error",
+		key = "c",
+		action = "checkhealth",
+	},
+	-- {
+	-- 	icon = "  ",
+	-- 	desc = "Empty buffer",
+	-- 	key = "e",
+	-- 	action = "enew",
+	-- },
+	{
+		icon = "  ",
+		desc = "Quit",
+		group = "NonText",
+		key = "q",
+		action = "q",
+	},
+}
+
+local doom_config = {
+	header = header,
+	center = operations,
+	footer = {}, --your footer
+}
+
+local hyper_config = {
+	week_header = {
+		enable = true,
+	},
+	project = {
+		enable = false,
+	},
+	mru = {
+		cwd_only = true,
+	},
+	shortcut = operations,
+}
+
+require("dashboard").setup({
+	theme = "hyper",
+	config = hyper_config,
+	event = "VimEnter",
 })

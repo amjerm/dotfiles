@@ -60,11 +60,10 @@ local plugins = {
 	"hrsh7th/cmp-path",
 	"hrsh7th/nvim-cmp",
 	"onsails/lspkind.nvim", --pictograms in cmp
-	"quangnguyen30192/cmp-nvim-ultisnips",
 
 	--highlight
 	"RRethy/vim-illuminate",
-	{ "rasulomaroff/reactive.nvim" },
+	"rasulomaroff/reactive.nvim",
 
 	--snippets
 	"SirVer/ultisnips",
@@ -78,42 +77,42 @@ local plugins = {
 	"tpope/vim-unimpaired",
 
 	--themes
-	"arcticicestudio/nord-vim",
-	"sainnhe/everforest",
-	"sainnhe/gruvbox-material",
+	-- "arcticicestudio/nord-vim",
+	-- "sainnhe/everforest",
+	-- "sainnhe/gruvbox-material",
 	"cideM/yui", -- for diffs
 	"mechatroner/rainbow_csv",
-	"rebelot/kanagawa.nvim",
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	{ "rose-pine/neovim", name = "rose-pine", priority = 1000 },
-	{ "savq/melange-nvim", name = "melange", priority = 1000 },
-	{ "embark-theme/vim", name = "embark", priority = 1000 },
-	"ghifarit53/tokyonight-vim",
-	{ "fcancelinha/northern.nvim", branch = "master", priority = 1000 },
-	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("nordic").load()
-		end,
-	},
+	-- "rebelot/kanagawa.nvim",
+	-- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	-- { "rose-pine/neovim", name = "rose-pine", priority = 1000 },
+	-- { "savq/melange-nvim", name = "melange", priority = 1000 },
+	-- { "embark-theme/vim", name = "embark", priority = 1000 },
+	-- "ghifarit53/tokyonight-vim",
+	-- { "fcancelinha/northern.nvim", branch = "master", priority = 1000 },
+	-- {
+	-- 	"AlexvZyl/nordic.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("nordic").load()
+	-- 	end,
+	-- },
 	"whatyouhide/vim-gotham",
-	"tlhr/anderson.vim",
-	"ayu-theme/ayu-vim",
-	"AlessandroYorba/Alduin",
-	"rakr/vim-two-firewatch",
-	"AlessandroYorba/Sierra",
-	"haystackandroid/carbonized",
-	"jdsimcoe/abstract.vim",
-	"rose-pine/neovim",
-	"aktersnurra/no-clown-fiesta.nvim",
-	{
-		"craftzdog/solarized-osaka.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
+	-- "tlhr/anderson.vim",
+	-- "ayu-theme/ayu-vim",
+	-- "AlessandroYorba/Alduin",
+	-- "rakr/vim-two-firewatch",
+	-- "AlessandroYorba/Sierra",
+	-- "haystackandroid/carbonized",
+	-- "jdsimcoe/abstract.vim",
+	-- "rose-pine/neovim",
+	-- "aktersnurra/no-clown-fiesta.nvim",
+	-- {
+	-- 	"craftzdog/solarized-osaka.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {},
+	-- },
 
 	--icons
 	{ "kyazdani42/nvim-web-devicons", opts = {} },
@@ -183,7 +182,6 @@ local plugins = {
 	"tpope/vim-fugitive", --comprehensive git tool
 	{ "lewis6991/gitsigns.nvim", opts = {} }, -- alternative to gitgutter
 	{ "akinsho/git-conflict.nvim", version = "*", config = true },
-	-- "samoshkin/vim-mergetool",
 
 	--fuzzy finder
 	{
@@ -228,21 +226,6 @@ local plugins = {
 	"theHamsta/nvim-dap-virtual-text",
 	"nvim-telescope/telescope-dap.nvim",
 
-	--testing
-	"vim-test/vim-test",
-	{
-		"nvim-neotest/neotest",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-neotest/neotest-plenary",
-			"nvim-treesitter/nvim-treesitter",
-			"antoinemadec/FixCursorHold.nvim",
-			"nvim-neotest/neotest-vim-test",
-			"haydenmeade/neotest-jest",
-			"rouge8/neotest-rust",
-		},
-	},
-
 	--markdown
 	{
 		"iamcco/markdown-preview.nvim",
@@ -252,9 +235,6 @@ local plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-
-	--databases
-	"tpope/vim-dadbod",
 }
 
 require("lazy").setup(plugins)

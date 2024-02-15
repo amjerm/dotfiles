@@ -12,6 +12,7 @@ require("telescope").setup({
 				["<C-h>"] = "which_key",
 				["<C-q>"] = "send_to_qflist",
 				["<C-f>"] = "send_selected_to_qflist",
+				["<C-d>"] = actions.delete_buffer,
 			},
 		},
 	},

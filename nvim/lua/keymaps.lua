@@ -3,6 +3,7 @@ local telescopeBuiltin = require("telescope.builtin")
 
 -- alpha
 vim.keymap.set("n", "-", ":lua require('oil').open()<CR>", defaultOpts)
+vim.keymap.set("n", "_", ":NnnPicker<CR>", defaultOpts)
 vim.keymap.set("n", "K", vim.lsp.buf.hover, defaultOpts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, defaultOpts)
 vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>", defaultOpts)
@@ -78,6 +79,7 @@ vim.keymap.set("n", "<Leader>fs", telescopeBuiltin.spell_suggest, defaultOpts)
 vim.keymap.set("n", "<Leader>ft", telescopeBuiltin.treesitter, defaultOpts)
 vim.keymap.set("n", "<Leader>fu", telescopeBuiltin.grep_string, defaultOpts)
 vim.keymap.set("n", "<Leader>fx", ":Telescope dap commands<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>f/", ":Telescope live_grep<CR>nocommit", defaultOpts)
 
 -- git - LEADER g
 vim.keymap.set("n", "<Leader>ga", ":Gitsigns stage_hunk<CR>", defaultOpts)

@@ -223,3 +223,6 @@ conf
 sesh
 ctrl
 zoxide
+wordpress
+laravel
+stringify

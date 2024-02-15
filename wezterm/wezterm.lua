@@ -15,7 +15,7 @@ end
 wezterm.on("window-config-reloaded", function(window)
 	window:set_right_status(wezterm.format({
 		{ Attribute = { Intensity = "Half" } },
-		{ Text = color_scheme .. "     " },
+		{ Text = color_scheme .. "    " },
 	}))
 end)
 
