@@ -10,9 +10,6 @@ if [[ $PKG_MGR == "homebrew" ]]; then
   export PATH="/opt/homebrew/bin:$PATH"
   export PATH="/opt/homebrew/sbin:$PATH"
   PKG_MGR_HOME="$(brew --prefix)/share"
-  # nvm
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
   POWERLEVEL_THEME_FILE="$PKG_MGR_HOME/powerlevel10k/powerlevel10k.zsh-theme"
 elif [[ $PKG_MGR == "pacman" ]]; then
   # do something specific to pacman  
@@ -90,20 +87,31 @@ export TIME_STYLE='long-iso'
 trysource "$XDG_CONFIG_HOME/zsh/zvm_config.zsh"
 trysource "$XDG_CONFIG_HOME/zsh/nnn_config.zsh"
 
+###############
+# COMPLETIONS #
+###############
+
+source "$PKG_MGR_HOME/zsh-completions"
+autoload -Uz compinit
+compinit
+
 ############
 # PLUGINS  #
 ############
 
-trysource "$XDG_CONFIG_HOME/zsh/antidote.zsh"
-
+# eval "$(sheldon source)"
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
+
+source "$PKG_MGR_HOME/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+
+source "$CLONED_DIR/fzf-tab/fzf-tab.plugin.zsh"
+
+source "$PKG_MGR_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 ############
 # PROMPT   #
 ############
-
-# eval "$(starship init zsh)"
 
 trysource "$POWERLEVEL_THEME_FILE"
 trysource "$POWERLEVEL9K_CONFIG_FILE"
@@ -121,3 +129,9 @@ trysource "$POWERLEVEL9K_CONFIG_FILE"
 ############
 
 trysource "$XDG_CONFIG_HOME/zsh/aliases.zsh"
+
+############
+# SYNTAX   #
+############
+
+source "$PKG_MGR_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

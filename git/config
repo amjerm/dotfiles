@@ -25,11 +25,19 @@
 [alias]
 	co = checkout
 	aa = add -A
+	ai = add -i
 	lg-all = log --pretty=df
+	lga = lg-all
 	lg = lg-all -10
+	lgg = log -p -S
 	lgv = log --pretty=dv -10
 	lgn = lg --no-merges
-	#find hash
+	bm = blame -w -C -C -C
+	fp = fetch -ap
+	pl = pull
+	# reset working state
+	nah = "!f(){ git reset --hard; git clean -df; if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then git rebase --abort; fi; }; f"
+	# find hash
 	fh = ! git lg-all -n 1000 | fzf | awk '{print $1}' | pbcopy
 	# find file
 	ff = ! git ls-files | fzf | pbcopy
@@ -40,6 +48,7 @@
 [interactive]
 	diffFilter = "diff-so-fancy --patch"
 [diff]
+	algorithm = histogram
         tool = nvimdiff
 	colorMoved = default
 [difftool]
@@ -67,3 +76,20 @@
 	date = iso
 [include]
 	path = ~/code/cloned/themes.gitconfig
+[rerere]
+	enabled = true
+[maintenance]
+	repo = /Users/adamjermstad/code/tsi/development-env/repos/monorepo
+	repo = /Users/adamjermstad/code/tsi/development-env/repos/laravel
+	repo = /Users/adamjermstad/code/tsi/development-env/repos/wordpress
+[rebase]
+	autosquash = true
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
+	insteadOf = "gh:"
+[branch]
+	sort = committerdate
+[tag]
+	sort = -taggerdate
+[push]
+	autoSetupRemote = true

@@ -1,3 +1,8 @@
+function reload() {
+  source ~/.zshenv
+  source "$XDG_CONFIG_HOME/zsh/config.zsh"
+}
+
 function trysource() { 
   [[ ! -f $1 ]] || source $1
 }
