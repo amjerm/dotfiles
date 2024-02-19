@@ -32,6 +32,8 @@
 	lgg = log -p -S
 	lgv = log --pretty=dv -10
 	lgn = lg --no-merges
+	nh = ! git checkout -b hotfix-$(date -I)
+	nr = ! git checkout -b release-$(date -I)
 	bm = blame -w -C -C -C
 	f = fetch -ap
 	pl = pull

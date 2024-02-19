@@ -39,7 +39,11 @@ function get_ticket_status() {
 }
 
 function list_one_ticket() {
-    jira issue list -q "id = TI-$1 --columns" key,status,summary
+    jira issue list -q "id = TI-$1" --columns key,status,summary
+}
+
+function list_one_ticket_obsidian () {
+    jira issue list -q "id = TI-$1" --plain --columns key,labels | python3 $SCRIPTS_DIR/fillStandupItem.py | pbcopy
 }
 
 function make_branch() { 
