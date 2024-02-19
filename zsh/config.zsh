@@ -11,6 +11,8 @@ if [[ $PKG_MGR == "homebrew" ]]; then
   export PATH="/opt/homebrew/sbin:$PATH"
   PKG_MGR_HOME="$(brew --prefix)/share"
   POWERLEVEL_THEME_FILE="$PKG_MGR_HOME/powerlevel10k/powerlevel10k.zsh-theme"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 elif [[ $PKG_MGR == "pacman" ]]; then
   # do something specific to pacman  
   PKG_MGR_HOME="/usr/share"
@@ -99,14 +101,11 @@ compinit
 # PLUGINS  #
 ############
 
-# eval "$(sheldon source)"
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
 
 source "$PKG_MGR_HOME/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-
 source "$CLONED_DIR/fzf-tab/fzf-tab.plugin.zsh"
-
 source "$PKG_MGR_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 ############

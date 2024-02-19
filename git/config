@@ -33,7 +33,7 @@
 	lgv = log --pretty=dv -10
 	lgn = lg --no-merges
 	bm = blame -w -C -C -C
-	fp = fetch -ap
+	f = fetch -ap
 	pl = pull
 	# reset working state
 	nah = "!f(){ git reset --hard; git clean -df; if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then git rebase --abort; fi; }; f"
