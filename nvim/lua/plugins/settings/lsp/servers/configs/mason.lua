@@ -1,3 +1,5 @@
+local utils = require("utilities")
+
 require("mason").setup()
 
 local lspconfig = require("lspconfig")

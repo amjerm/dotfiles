@@ -33,20 +33,36 @@ local plugins = {
 		opts = {},
 	},
 	{
+		"luckasRanarison/tailwind-tools.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {},
+	},
+	{
 		"saecki/crates.nvim",
 		tag = "v0.3.0",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	"b0o/schemastore.nvim",
-	{
-		"Wansmer/symbol-usage.nvim",
-		event = "BufReadPre", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
-	},
+	-- {
+	-- 	"Wansmer/symbol-usage.nvim",
+	-- 	event = "LspAttach",
+	-- },
 	"williamboman/mason.nvim",
+	{ "dmmulroy/ts-error-translator.nvim", opts = {} },
+	{
+		"zeioth/garbage-day.nvim",
+		dependencies = "neovim/nvim-lspconfig",
+		event = "VeryLazy",
+		opts = {},
+	},
+
+	--ai
+	"github/copilot.vim",
 
 	--treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-textobjects",
+	"hedyhli/outline.nvim",
 
 	--diagnostics
 	{ "folke/trouble.nvim", dependencies = { "kyazdani42/nvim-web-devicons" } },
@@ -62,8 +78,8 @@ local plugins = {
 	"onsails/lspkind.nvim", --pictograms in cmp
 
 	--highlight
-	"RRethy/vim-illuminate",
-	"rasulomaroff/reactive.nvim",
+	-- "RRethy/vim-illuminate",
+	-- "rasulomaroff/reactive.nvim",
 
 	--snippets
 	"SirVer/ultisnips",
@@ -77,42 +93,32 @@ local plugins = {
 	"tpope/vim-unimpaired",
 
 	--themes
-	-- "arcticicestudio/nord-vim",
-	-- "sainnhe/everforest",
-	-- "sainnhe/gruvbox-material",
+	{ "cormacrelf/dark-notify" },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	"sainnhe/edge",
+	"sainnhe/everforest",
+	"projekt0n/github-nvim-theme",
+	"rose-pine/neovim",
+	"katawful/kat.nvim",
+	"rakr/vim-one",
+	"shaunsingh/nord.nvim",
+	"pgdouyon/vim-yin-yang",
+	"preservim/vim-colors-pencil",
+	"savq/melange-nvim",
+	"wuelnerdotexe/vim-enfocado",
+	"chriskempson/vim-tomorrow-theme",
+	"morhetz/gruvbox",
+	{ "sainnhe/gruvbox-material", priority = 1000 },
+	"mswift42/vim-themes",
+	"rebelot/kanagawa.nvim",
+	"nlknguyen/papercolor-theme",
+	{ "miikanissi/modus-themes.nvim", priority = 1000 },
 	"cideM/yui", -- for diffs
 	"mechatroner/rainbow_csv",
-	-- "rebelot/kanagawa.nvim",
-	-- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	-- { "rose-pine/neovim", name = "rose-pine", priority = 1000 },
-	-- { "savq/melange-nvim", name = "melange", priority = 1000 },
-	-- { "embark-theme/vim", name = "embark", priority = 1000 },
-	-- "ghifarit53/tokyonight-vim",
-	-- { "fcancelinha/northern.nvim", branch = "master", priority = 1000 },
-	-- {
-	-- 	"AlexvZyl/nordic.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("nordic").load()
-	-- 	end,
-	-- },
+	"hzchirs/vim-material",
 	"whatyouhide/vim-gotham",
-	-- "tlhr/anderson.vim",
-	-- "ayu-theme/ayu-vim",
-	-- "AlessandroYorba/Alduin",
-	-- "rakr/vim-two-firewatch",
-	-- "AlessandroYorba/Sierra",
-	-- "haystackandroid/carbonized",
-	-- "jdsimcoe/abstract.vim",
-	-- "rose-pine/neovim",
-	-- "aktersnurra/no-clown-fiesta.nvim",
-	-- {
-	-- 	"craftzdog/solarized-osaka.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	opts = {},
-	-- },
+	{ "ptdewey/darkearth-nvim", priority = 1000 },
+	{ "navarasu/onedark.nvim", priority = 1000 },
 
 	--icons
 	{ "kyazdani42/nvim-web-devicons", opts = {} },
@@ -144,7 +150,7 @@ local plugins = {
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		---@type Flash.Config
-		opts = {},
+		opts = { modes = { search = { enabled = true } } },
 	},
 
 	--keymap guild
@@ -162,11 +168,11 @@ local plugins = {
 	"ThePrimeagen/harpoon",
 
 	--folds
-	{
-		"chrisgrieser/nvim-origami",
-		event = "BufReadPost", -- later or on keypress would prevent saving folds
-		opts = true, -- needed even when using default config
-	},
+	-- {
+	-- 	"chrisgrieser/nvim-origami",
+	-- 	event = "BufReadPost", -- later or on keypress would prevent saving folds
+	-- 	opts = true, -- needed even when using default config
+	-- },
 
 	--comments
 	"tpope/vim-commentary",
@@ -219,12 +225,26 @@ local plugins = {
 	--detect buffer options
 	"tpope/vim-sleuth",
 
+	--http client
+	"mistweaverco/kulala.nvim",
+
 	--debugger
-	"mfussenegger/nvim-dap",
+	{ "mfussenegger/nvim-dap", dependencies = { "nvim-neotest/nvim-nio" } },
 	"Pocco81/DAPInstall.nvim",
 	"rcarriga/nvim-dap-ui",
 	"theHamsta/nvim-dap-virtual-text",
 	"nvim-telescope/telescope-dap.nvim",
+
+	--testing
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
 
 	--markdown
 	{

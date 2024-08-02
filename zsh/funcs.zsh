@@ -43,7 +43,19 @@ function list_one_ticket() {
 }
 
 function list_one_ticket_obsidian () {
-    jira issue list -q "id = TI-$1" --plain --columns key,labels | python3 $SCRIPTS_DIR/fillStandupItem.py | pbcopy
+    jira issue list -q "id = TI-$1" --plain --columns key,labels | python3 $SCRIPTS_DIR/obsidian-helpers/fillStandupItem.py | pbcopy
+}
+
+function make_ticket_note_obsidian () {
+    jira issue list -q "id = TI-$1" --plain --columns key,type,labels | python3 $SCRIPTS_DIR/obsidian-helpers/fillTicket.py
+}
+
+start_ticket() {
+    TICKET_ID=$(jira issue list -a $(jira me) -q 'Sprint in openSprints() and statusCategory != Done' --columns key,status,summary --plain --no-headers | fzf | cut -f1) && jira issue move $TICKET_ID "Start" && make_ticket_note $TICKET_ID $JIRA_SPRINT $1
+}
+
+function make_ticket_note () {
+    python3 $SCRIPTS_DIR/obsidian-helpers/allTicket.py $1 $2 $3
 }
 
 function make_branch() { 
@@ -62,6 +74,12 @@ function start_branch() {
 
   git checkout -b $(make_branch $type) $1
   # mark in progress
+}
+
+
+function fuzzy_diff() {
+  preview="git diff $@ --color=always -- {-1}"
+  git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
 
 # connect to staging database

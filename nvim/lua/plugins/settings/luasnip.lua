@@ -1,5 +1,5 @@
 local ls = require("luasnip")
-local types = require("luasnip.util.types")
+-- local types = require("luasnip.util.types")
 
 ls.config.set_config({
 	history = true,
@@ -218,22 +218,26 @@ ls.add_snippets("typescriptreact", {
 		"rc",
 		fmt(
 			[[
+import React from 'react'
+
 interface Props {{
 	{propDef}
 }}
-const {name} = ({props}: Props) => {{
+
+const {name} = ({{{props}}}: Props) => {{
     return (
-    <p>{text}{e}</p>
+    <p>{text} {e}</p>
     )
 }}
+
 export default {export}
 	]],
 			{
 				name = i(1),
-				propDef = i(2),
-				props = i(3),
-				text = rep(1),
+				props = i(2),
+				propDef = i(3),
 				export = rep(1),
+				text = rep(1),
 				e = i(0),
 			}
 		)

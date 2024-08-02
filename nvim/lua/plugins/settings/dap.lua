@@ -40,60 +40,60 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
 
---dap.adapters.chrome = {
---type = "executable",
---command = "node",
---args = {vim.fn.stdpath("data") .. "/dapinstall/chrome/vscode-chrome-debug/out/src/chromeDebug.js"}
---}
+dap.adapters.chrome = {
+	type = "executable",
+	command = "node",
+	args = { vim.fn.stdpath("data") .. "/dapinstall/chrome/vscode-chrome-debug/out/src/chromeDebug.js" },
+}
 
---dap.configurations.javascript = {
---{
---type = "chrome",
---request = "attach",
---program = "${file}",
---cwd = vim.fn.getcwd(),
---sourceMaps = true,
---protocol = "inspector",
---port = 9222,
---webRoot = "${workspaceFolder}"
---}
---}
+dap.configurations.javascript = {
+	{
+		type = "chrome",
+		request = "attach",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		port = 9222,
+		webRoot = "${workspaceFolder}",
+	},
+}
 
---dap.configurations.typescript = {
---{
---type = "chrome",
---request = "attach",
---program = "${file}",
---cwd = vim.fn.getcwd(),
---sourceMaps = true,
---protocol = "inspector",
---port = 9222,
---webRoot = "${workspaceFolder}"
---}
---}
+dap.configurations.typescript = {
+	{
+		type = "chrome",
+		request = "attach",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		port = 9222,
+		webRoot = "${workspaceFolder}",
+	},
+}
 
---dap.configurations.javascriptreact = {
---{
---type = "chrome",
---request = "attach",
---program = "${file}",
---cwd = vim.fn.getcwd(),
---sourceMaps = true,
---protocol = "inspector",
---port = 9222,
---webRoot = "${workspaceFolder}"
---}
---}
+dap.configurations.javascriptreact = {
+	{
+		type = "chrome",
+		request = "attach",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		port = 9222,
+		webRoot = "${workspaceFolder}",
+	},
+}
 
---dap.configurations.typescriptreact = {
---{
---type = "chrome",
---request = "attach",
---program = "${file}",
---cwd = vim.fn.getcwd(),
---sourceMaps = true,
---protocol = "inspector",
---port = 9222,
---webRoot = "${workspaceFolder}"
---}
---}
+dap.configurations.typescriptreact = {
+	{
+		type = "chrome",
+		request = "attach",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		port = 9222,
+		webRoot = "${workspaceFolder}",
+	},
+}

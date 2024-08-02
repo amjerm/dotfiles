@@ -7,7 +7,6 @@ vim.g["&t_SI"] = "<Esc>]50;CursorShape=1x7"
 vim.g["&t_SR"] = "<Esc>]50;CursorShape=2x7"
 
 -- OPTIONS
-vim.o.background = "dark"
 vim.o.breakindent = true
 vim.o.clipboard = "unnamedplus"
 vim.o.colorcolumn = "+0,160"
@@ -17,19 +16,18 @@ vim.o.expandtab = true
 vim.o.foldenable = false
 vim.o.foldmethod = "indent"
 vim.o.grepprg = "rg --vimgrep --smart-case"
-vim.o.guifont = "MonoLisa:h12"
 vim.o.ignorecase = true
 vim.o.incsearch = false
 vim.o.number = true
 vim.o.paste = false
 vim.o.pyxversion = 3
 vim.o.relativenumber = true
--- vim.o.showbreak = "… "
+vim.o.scrolloff = 999
 vim.o.showbreak = "↳"
 vim.o.showtabline = 2
 vim.o.smartcase = true
 vim.o.softtabstop = 2
-vim.o.spell = true
+vim.o.spell = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.startofline = true

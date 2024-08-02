@@ -1,10 +1,11 @@
 -- everforest
-vim.g.everforest_background = 'hard'
+vim.g.everforest_background = "hard"
 
 if vim.wo.diff then
-        vim.cmd('colorscheme yui')
+	vim.cmd("colorscheme yui")
 else
-        -- vim.cmd('colorscheme kanagawa-wave')
-        vim.cmd('colorscheme gotham256')
-        vim.cmd([[highlight ColorColumn guibg=#091f2e]])
+	vim.cmd("colorscheme gotham")
+
+	-- vim.api.nvim_set_option("background", "light")
+	-- vim.cmd([[highlight ColorColumn guibg=#091f2e]])
 end

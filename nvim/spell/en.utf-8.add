@@ -226,3 +226,15 @@ zoxide
 wordpress
 laravel
 stringify
+originalData
+ai
+FormContact
+selectedContactId
+contactTypeProvider
+ContactData
+LogicException
+BindingResolutionException
+JWT
+JWTService
+jwt
+api

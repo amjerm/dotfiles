@@ -1,7 +1,9 @@
 [user]
 	name = Adam Jermstad
-	email = 30279337+amjerm@users.noreply.github.com
+	email = dev@amjerm.me
 	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNlN8o3agp5Mi1NM80/ApADZFE1SUJGcp2PxYg2fnYL
+[includeIf "gitdir:~/code/tsi/"]
+	path = ~/code/tsi/.gitconfig
 [gpg]
 	format = ssh
 [gpg "ssh"]
@@ -17,7 +19,7 @@
 	; pager = "delta --pager=less"
 [delta]
 	navigate = true
-	light = false
+	; light = false
 	line-numbers = true
 [pretty]
         dv = %C(auto)%h %G? %<(10,trunc)%an %s %d %Cblue%cr %Creset
@@ -36,7 +38,10 @@
 	nr = ! git checkout -b release-$(date -I)
 	bm = blame -w -C -C -C
 	f = fetch -ap
-	pl = pull
+	p = pull
+	sw = switch
+	b = branch
+	ba = ! git branch -a | rg adam
 	# reset working state
 	nah = "!f(){ git reset --hard; git clean -df; if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then git rebase --abort; fi; }; f"
 	# find hash

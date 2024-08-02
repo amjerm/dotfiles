@@ -2,8 +2,18 @@ vim.o.completeopt = "menu"
 
 local cmp = require("cmp")
 
+require("lspkind").init({
+	preset = "codicons",
+	symbol_map = {
+		Copilot = "",
+	},
+})
+
 if cmp then
 	cmp.setup({
+		experimental = {
+			ghost_text = true, -- turn off for copilot
+		},
 		window = {
 			completion = cmp.config.window.bordered(),
 			documentation = cmp.config.window.bordered(),
@@ -15,6 +25,7 @@ if cmp then
 					mode = "symbol_text",
 					maxwidth = 50,
 					menu = {
+						copilot = "[CP]",
 						buffer = "[Buf]",
 						lsp_signature = "[Sig]",
 						nvim_lsp = "[LSP]",
@@ -51,11 +62,12 @@ if cmp then
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		}),
 		sources = cmp.config.sources({
-			{ name = "ultisnips" },
-			{ name = "nvim_lsp" },
-			{ name = "lsp_signature" },
-			{ name = "path" },
-			{ name = "crates" },
+			-- { name = "copilot", group_index = 2 },
+			{ name = "ultisnips", group_index = 2 },
+			{ name = "nvim_lsp", group_index = 2 },
+			{ name = "lsp_signature", group_index = 2 },
+			{ name = "path", group_index = 2 },
+			{ name = "crates", group_index = 2 },
 		}, {
 			{ name = "buffer", keyword_length = 3 },
 		}),

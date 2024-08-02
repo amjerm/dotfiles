@@ -13,4 +13,15 @@ require("lspsaga").setup({
 		extend_gitsigns = true,
 		show_server_name = true,
 	},
+	outline = {
+		detail = {
+			enable = false,
+			max_width = 0.2,
+		},
+		auto_preview = false,
+		show_detail = false,
+	},
 })
+
+-- FILETYPES
+require("plugins/settings/lsp/filetypes")

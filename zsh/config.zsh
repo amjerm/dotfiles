@@ -1,9 +1,9 @@
 source ~/.zshenv
 
-P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" 
-if [[ -r $P10K_INSTANT_PROMPT ]]; then
-  source $P10K_INSTANT_PROMPT
-fi
+# P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" 
+# if [[ -r $P10K_INSTANT_PROMPT ]]; then
+#   source $P10K_INSTANT_PROMPT
+# fi
 
 if [[ $PKG_MGR == "homebrew" ]]; then
   # do something specific to homebrew
@@ -75,7 +75,7 @@ source "$XDG_CONFIG_HOME/zsh/funcs.zsh"
 ############
 
 bindkey -v
-bindkey -s '^o' 'lfcd\n'
+bindkey '^r' fzf-history-widget
 
 # SOFTWARE
 

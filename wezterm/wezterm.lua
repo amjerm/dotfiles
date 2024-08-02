@@ -1,22 +1,45 @@
 local wezterm = require("wezterm")
 
-local use_color = "Gotham (custom)"
-local default_color_scheme = "nord"
-local color_scheme
+local always_dark = true
 
-if use_color == "random" or use_color == "rand" then
-	color_scheme = require("functions/random_color_scheme").generate()
-elseif use_color == "default" or use_color == "def" then
-	color_scheme = default_color_scheme
-else
-	color_scheme = use_color
+local colors = {
+	light = "Alabaster",
+	dark = "Gotham (custom)",
+	default = "nord",
+}
+
+function scheme_for_appearance(appearance)
+	if always_dark == false and appearance:find("Light") then
+		return colors.light
+	elseif appearance:find("Dark") then
+		local default_color = "nord"
+		if colors.dark == "random" or colors.dark == "rand" then
+			return require("functions/random_color_scheme").generate()
+		elseif colors.dark == "default" or colors.dark == "def" then
+			return default_color
+		else
+			return colors.dark
+		end
+	else
+		return colors.default
+	end
 end
+
+local color_scheme = colors.default
 
 wezterm.on("window-config-reloaded", function(window)
 	window:set_right_status(wezterm.format({
 		{ Attribute = { Intensity = "Half" } },
 		{ Text = color_scheme .. "    " },
 	}))
+
+	local overrides = window:get_config_overrides() or {}
+	local appearance = window:get_appearance()
+	local scheme = scheme_for_appearance(appearance)
+	if overrides.color_scheme ~= scheme then
+		overrides.color_scheme = scheme
+		window:set_config_overrides(overrides)
+	end
 end)
 
 local keys = {
@@ -57,7 +80,7 @@ if color_scheme == "Gotham (custom)" then
 end
 
 local config = {
-	leader = { key = "w", mods = "CTRL", timeout_milliseconds = 1000 },
+	leader = { key = "w", mods = "ALT", timeout_milliseconds = 1000 },
 	color_scheme = color_scheme,
 	color_schemes = modified_color_schemes,
 	font = wezterm.font_with_fallback({
@@ -77,7 +100,7 @@ local config = {
 		bottom = 0,
 	},
 	window_background_opacity = 0.9,
-	font_size = 24
+	font_size = 20,
 }
 
 return config
