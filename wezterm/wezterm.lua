@@ -85,10 +85,11 @@ local config = {
 	color_schemes = modified_color_schemes,
 	font = wezterm.font_with_fallback({
 		"Iosevka",
-		"Iosevka Term",
-		"MonoLisa Custom",
 		"Iosevka Extended",
 		"JetBrains Mono",
+		"MonoLisa Custom",
+		"Iosevka Term",
+		"CaskaydiaCove Nerd Font Mono",
 	}),
 	keys = keys,
 	initial_rows = 40,

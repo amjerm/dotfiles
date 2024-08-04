@@ -39,6 +39,10 @@ require("telescope").setup({
 			symbol_width = 80,
 			ignore_symbols = { "type", "var" },
 		},
+		lsp_document_symbols = {
+			symbol_width = 40,
+			symbol_type_width = 10,
+		},
 		jumplist = {
 			preview = { hide_on_startup = false },
 		},
@@ -62,3 +66,4 @@ require("telescope").setup({
 -- register extensions
 require("telescope").load_extension("harpoon")
 require("telescope").load_extension("dap")
+require("telescope").load_extension("fzf")

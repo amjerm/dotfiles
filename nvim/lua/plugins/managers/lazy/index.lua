@@ -59,13 +59,16 @@ local plugins = {
 	--ai
 	"github/copilot.vim",
 
+	--icons
+	"nvim-tree/nvim-web-devicons",
+
 	--treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	"hedyhli/outline.nvim",
 
 	--diagnostics
-	{ "folke/trouble.nvim", dependencies = { "kyazdani42/nvim-web-devicons" } },
+	{ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 
 	--autocomplete
 	"hrsh7th/cmp-buffer",
@@ -93,7 +96,8 @@ local plugins = {
 	"tpope/vim-unimpaired",
 
 	--themes
-	{ "cormacrelf/dark-notify" },
+	"cormacrelf/dark-notify",
+	"tiagovla/tokyodark.nvim",
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	"sainnhe/edge",
 	"sainnhe/everforest",
@@ -120,20 +124,17 @@ local plugins = {
 	{ "ptdewey/darkearth-nvim", priority = 1000 },
 	{ "navarasu/onedark.nvim", priority = 1000 },
 
-	--icons
-	{ "kyazdani42/nvim-web-devicons", opts = {} },
-
 	--statusline
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons", lazy = true },
+		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	},
 	"arkav/lualine-lsp-progress",
 
 	--splash screen
 	{
 		"nvimdev/dashboard-nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
 	-- directory explorer
@@ -201,10 +202,12 @@ local plugins = {
 	--telescope
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "1.4.0",
-		dependencies = { { "nvim-lua/plenary.nvim" } },
+		-- version = "1.4.0",
+		tag = "0.1.8",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	"nvim-telescope/telescope-symbols.nvim",
 
 	--repeat plugin commands with '.' in addition to native ones
 	"tpope/vim-repeat",

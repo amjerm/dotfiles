@@ -41,16 +41,13 @@ require("nvim-treesitter.configs").setup({
 	sync_install = false,
 	auto_install = true,
 	ignore_install = {},
-	matchup = {
-		enable = true, -- mandatory
-	},
-	highlight = {
-		enable = true,
-	},
-	indent = {
-		enable = true,
-	},
+	-- matchup = {
+	-- 	enable = true, -- mandatory
+	-- },
+	highlight = { enable = true },
+	indent = { enable = true },
 	textobjects = {
+		enable = true,
 		select = {
 			enable = true,
 			lookahead = true,
