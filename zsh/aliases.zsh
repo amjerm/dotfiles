@@ -1,4 +1,6 @@
 alias deps="jq '{dependencies, devDependencies, peerDependencies}'"
+alias dx="dx"
+alias dxl="dex laravel"
 alias e="edit"
 alias ea="$EDITOR $XDG_CONFIG_HOME/zsh/aliases.zsh"
 alias ec="$EDITOR $XDG_CONFIG_HOME"

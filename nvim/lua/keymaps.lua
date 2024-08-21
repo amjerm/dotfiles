@@ -2,7 +2,7 @@ local defaultOpts = { noremap = true }
 local telescopeBuiltin = require("telescope.builtin")
 
 -- alpha
-vim.keymap.set("n", "-", ":lua require('oil').open()<CR>", defaultOpts)
+vim.keymap.set("n", "-", ":NnnPicker %:p:h<CR>", defaultOpts)
 vim.keymap.set("n", "K", vim.lsp.buf.hover, defaultOpts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, defaultOpts)
 vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>", defaultOpts)
@@ -17,7 +17,7 @@ vim.keymap.set("n", "gb", ":Git blame<CR>", defaultOpts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, defaultOpts)
 vim.keymap.set("n", "gh", vim.lsp.buf.signature_help, defaultOpts)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, defaultOpts)
-vim.keymap.set("n", "gq", ":TroubleToggle quickfix<CR>", defaultOpts)
+vim.keymap.set("n", "gq", ":Trouble quickfix toggle<CR>", defaultOpts)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, defaultOpts)
 vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, defaultOpts)
 vim.keymap.set("o", "r", ":lua require('flash').remote()<CR>")
@@ -33,28 +33,31 @@ vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", defaultOpts) -- window nav
 vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", defaultOpts) -- window nav
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", defaultOpts) -- window nav
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", defaultOpts) -- window nav
-vim.keymap.set("n", "<C-t>", ":TroubleToggle<CR>", defaultOpts) -- window nav
+vim.keymap.set("n", "<C-t>", ":Trouble diagnostics toggle<CR>", defaultOpts) -- window nav
 vim.keymap.set("n", "<C-x>", ":Dashboard<CR>", defaultOpts) -- window nav
 
 -- other
 vim.keymap.set("n", "<Esc>", ":noh<CR>", defaultOpts) -- find file
 vim.keymap.set("n", "<Space>", "za", defaultOpts) -- toggle fold
 vim.keymap.set("n", "Q", ":q<CR>", defaultOpts) -- quit with Q
-vim.keymap.set("n", "?", ":WhichKey<CR>", defaultOpts) -- toggle fold
+vim.keymap.set("n", "?", ":WhichKey<CR>", defaultOpts) -- show keybinds
 
 -- movement $ - LEADER ;
 vim.keymap.set("n", "<Leader>L", "$", defaultOpts)
 
 -- ai - LEADER a
-vim.keymap.set("n", "<Leader>aa", ":Copilot enable<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>ad", ":Copilot disable<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>a?", ":Copilot status<CR>", defaultOpts)
+-- vim.keymap.set("n", "<Leader>aa", ":Copilot enable<CR>", defaultOpts)
+-- vim.keymap.set("n", "<Leader>ad", ":Copilot disable<CR>", defaultOpts)
+-- vim.keymap.set("n", "<Leader>a?", ":Copilot status<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>aa", ":SupermavenStart<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>ad", ":SupermavenStop<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>a?", ":SupermavenStatus<CR>", defaultOpts)
 
 -- buffers - LEADER b
 vim.keymap.set("n", "<Leader>bb", telescopeBuiltin.buffers, defaultOpts)
 vim.keymap.set("n", "<Leader>bl", ":redir! @a | silent ls | redir END | new | put! a<CR>", defaultOpts) -- ls in buffer
 
--- buffers - LEADER c
+-- http - LEADER c
 vim.keymap.set("n", "<Leader>cc", ":lua require('kulala').run()<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>cv", ":lua require('kulala').toggle_view()<CR>", defaultOpts)
 
@@ -64,7 +67,11 @@ vim.keymap.set("n", "<Leader>dk", vim.diagnostic.open_float, defaultOpts)
 vim.keymap.set("n", "<Leader>dn", vim.diagnostic.goto_next, defaultOpts)
 vim.keymap.set("n", "<Leader>dp", vim.diagnostic.goto_prev, defaultOpts)
 vim.keymap.set("n", "<Leader>dq", vim.diagnostic.setqflist, defaultOpts)
-vim.keymap.set("n", "<Leader>dt", ":TroubleToggle<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>dt", ":Trouble diagnostics toggle<CR>", defaultOpts)
+
+-- filetree - LEADER e
+vim.keymap.set("n", "<Leader>eh", ":h eunuch<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>eo", ":lua require('oil').open()<CR>", defaultOpts)
 
 -- find - LEADER f
 vim.keymap.set("n", "<Leader>fD", ":Telescope diagnostics<CR>", defaultOpts)
@@ -153,11 +160,11 @@ vim.keymap.set("n", "<Leader>sr", "<cmd>source ~/.config/nvim/after/ftplugin/lua
 vim.keymap.set("n", "<Leader>se", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", defaultOpts)
 
 -- trouble - LEADER t
-vim.keymap.set("n", "<Leader>td", ":TroubleToggle document_diagnostics<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>tq", ":TroubleToggle quickfix<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>tr", ":TroubleRefresh<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>tt", ":TroubleToggle<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>tw", ":TroubleToggle workspace_diagnostics<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>td", ":Trouble document_diagnostics toggle<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tq", ":Trouble quickfix toggle<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tr", ":Trouble refresh<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tt", ":Trouble diagnostics toggle<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>tw", ":Trouble workspace_diagnostics toggle<CR>", defaultOpts)
 
 -- unit tests - LEADER u
 vim.keymap.set("n", "<Leader>un", ":lua require('neotest').run.run()<CR>", defaultOpts)
@@ -193,3 +200,6 @@ vim.keymap.set("n", "<Leader>xx", ":lua require('dapui').toggle()<CR>", defaultO
 -- yank - LEADER y
 vim.keymap.set("n", "<Leader>yl", ':let @*=fnamemodify(expand("%"), ":~:.") . ":" . line(".")<CR>', defaultOpts)
 vim.keymap.set("n", "<Leader>yf", ':let @*=fnamemodify(expand("%"), ":~:.")<CR>', defaultOpts)
+
+-- folds - LEADER z
+vim.keymap.set("n", "<Leader>zz", ":lua set foldlevel=1<CR>", defaultOpts)

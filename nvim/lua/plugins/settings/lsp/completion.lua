@@ -4,8 +4,11 @@ local cmp = require("cmp")
 
 require("lspkind").init({
 	preset = "codicons",
+	mode = "symbol",
+	max_width = 50,
 	symbol_map = {
 		Copilot = "",
+		Supermaven = "",
 	},
 })
 
@@ -63,6 +66,8 @@ if cmp then
 		}),
 		sources = cmp.config.sources({
 			-- { name = "copilot", group_index = 2 },
+			{ name = "supermaven", group_index = 2 },
+			{ name = "buffer", group_index = 2 },
 			{ name = "ultisnips", group_index = 2 },
 			{ name = "nvim_lsp", group_index = 2 },
 			{ name = "lsp_signature", group_index = 2 },

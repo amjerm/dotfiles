@@ -57,7 +57,8 @@ local plugins = {
 	},
 
 	--ai
-	"github/copilot.vim",
+	-- "github/copilot.vim",
+	"supermaven-inc/supermaven-nvim",
 
 	--icons
 	"nvim-tree/nvim-web-devicons",
