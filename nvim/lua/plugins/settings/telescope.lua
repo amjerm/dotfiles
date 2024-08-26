@@ -40,7 +40,7 @@ require("telescope").setup({
 			ignore_symbols = { "type", "var" },
 		},
 		lsp_document_symbols = {
-			symbol_width = 40,
+			symbol_width = 90,
 			symbol_type_width = 10,
 		},
 		jumplist = {

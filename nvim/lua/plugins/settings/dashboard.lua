@@ -21,7 +21,7 @@ local operations = {
 		desc = "Find files",
 		group = "Directory",
 		key = "f",
-		action = "Files",
+		action = "Telescope find_files",
 	},
 	-- {
 	-- 	icon = "󱏒  ",

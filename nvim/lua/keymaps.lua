@@ -134,6 +134,7 @@ vim.keymap.set("n", "<Leader>lo", ":Outline<CR>", defaultOpts) -- show outline
 vim.keymap.set("n", "<Leader>lr", ":Lspsaga rename<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>lR", ":LspRestart<CR>", defaultOpts)
 -- vim.keymap.set("n", "<Leader>lr", vim.lsp.buf.rename, defaultOpts)
+vim.keymap.set("n", "<Leader>ls", ":Telescope lsp_document_symbols<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>lv", ":lua require('flash').treesitter()<CR>", defaultOpts)
 
 -- marks - LEADER m
@@ -149,6 +150,11 @@ vim.keymap.set("n", "<Leader>np", ":NnnPicker %:p:h<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>os", function()
 	vim.opt.spell = not (vim.opt.spell:get())
 end, defaultOpts)
+
+-- page - LEADER p
+vim.keymap.set("n", "<Leader>pt", "zt", defaultOpts)
+vim.keymap.set("n", "<Leader>pm", "zm", defaultOpts)
+vim.keymap.set("n", "<Leader>pb", "zb", defaultOpts)
 
 -- quickfix - LEADER q
 vim.keymap.set("n", "<Leader>qd", vim.diagnostic.setqflist, defaultOpts)

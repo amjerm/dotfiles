@@ -4,11 +4,12 @@ local always_dark = true
 
 local colors = {
 	light = "Alabaster",
-	dark = "Gotham (custom)",
+	-- dark = "Gotham (custom)",
+	dark = "Shaman",
 	default = "nord",
 }
 
-function scheme_for_appearance(appearance)
+local function scheme_for_appearance(appearance)
 	if always_dark == false and appearance:find("Light") then
 		return colors.light
 	elseif appearance:find("Dark") then
@@ -100,8 +101,8 @@ local config = {
 		top = 0,
 		bottom = 0,
 	},
-	window_background_opacity = 0.9,
-	font_size = 20
+	-- window_background_opacity = 0.9,
+	font_size = 20,
 }
 
 return config
