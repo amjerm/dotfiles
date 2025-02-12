@@ -1,9 +1,6 @@
 local custom_on_attach = function(client, bufnr)
 	-- formatting
 	require("lsp-format").on_attach(client)
-
-	inlay
-	hints
 	require("lsp-inlayhints").on_attach(client, bufnr)
 
 	-- cmp

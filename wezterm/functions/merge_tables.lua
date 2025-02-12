@@ -1,4 +1,4 @@
-local combineTables = function(table1, table2)
+local merge = function(table1, table2)
 	local result = {}
 	for key, value in pairs(table1) do
 		result[key] = value
@@ -10,5 +10,5 @@ local combineTables = function(table1, table2)
 end
 
 return {
-	combineTables = combineTables,
+	merge = merge,
 }

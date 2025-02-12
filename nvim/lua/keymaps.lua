@@ -70,6 +70,7 @@ vim.keymap.set("n", "<Leader>dq", vim.diagnostic.setqflist, defaultOpts)
 vim.keymap.set("n", "<Leader>dt", ":Trouble diagnostics toggle<CR>", defaultOpts)
 
 -- filetree - LEADER e
+vim.keymap.set("n", "<Leader>ef", ":Telescope find_files<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>eh", ":h eunuch<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>eo", ":lua require('oil').open()<CR>", defaultOpts)
 
@@ -104,7 +105,8 @@ vim.keymap.set("n", "<Leader>gc", ":Commits --pretty=df<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gd", ":Gvdiffsplit!<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gg", ":vertical G<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gh", ":BCommits --pretty=df<CR>", defaultOpts)
-vim.keymap.set("n", "<Leader>gi", ":Gitsigns preview_hunk_inline<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>gi", ":Gitsigns toggle_current_line_blame<CR>", defaultOpts)
+vim.keymap.set("n", "<Leader>gI", ":Gitsigns preview_hunk_inline<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gn", ":Gitsigns next_hunk<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", defaultOpts)
 vim.keymap.set("n", "<Leader>gr", ":Gitsigns reset_hunk<CR>", defaultOpts)

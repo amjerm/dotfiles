@@ -76,6 +76,7 @@ source "$XDG_CONFIG_HOME/zsh/funcs.zsh"
 
 bindkey -v
 bindkey '^r' fzf-history-widget
+bindkey '^ ' autosuggest-accept
 
 # SOFTWARE
 
@@ -134,3 +135,12 @@ trysource "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 ############
 
 source "$PKG_MGR_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+
+############
+# TERM     #
+############
+
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+  export TERM="xterm-256color"
+fi
